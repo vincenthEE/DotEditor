@@ -1,0 +1,3 @@
+pyinstaller pyinstaller.spec
+
+pause

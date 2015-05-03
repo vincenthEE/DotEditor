@@ -1,0 +1,63 @@
+Step to publish.
+
+++ style attr should be tuple! 
+++ enum_image pg, include "color_scheme", "node_shape"
+++ color pg.
+++ arrow shape pg. Haaaa!
+++ Backup old graph file when save it.
+-- Show helps in preview window :)
+-- Drag and drop in tree.
+-- Undo, redo
+-- Add GPL declaration.
+-- About Dialog. Maybe still use preview window.
+-- Pop alert when script changed and user cancel or close the script dialog.
+++ Highlight the source code panel. Maybe scintilla is a good choice.
+++ Dot Editor Icon and Logo.
+++ Move wildcard item to the beginning of graph.
++- Keyboard shortcut.
+-- Zoom and pan
+-- Restruct all attrs group. Keep mostly used attr on upside.
+-- Test, fix bugs.
+-- some connect between fillcolor -> styled.filled, plaintext -> styled.filled
+++ Create temp files in system-temp-directory and delete them when exit.
+++ Check graphviz installed when start DE.
+
+limited feature.
+-- The wildcard 'node' and 'edge' exists only one-copy in each graph/subgraph.
+-- From Pydot: double quote can't be use in quoted string such as name or label.
+
+plan:
+-- Upload to Github.
+-- Build a small web page to publish.
+-- Add comment to script.
+-- Maybe can replace preview with brower-window to preview in SVG format.
+
+-- Change the kernel of dot parser. Such as pygraphviz or gv_python
+
+Next features:
+
+-- Maybe can change node/edge name to strip it.
+-- Some fast Dialog such like: Graph most-used params Dialog, Add nodes dialog, Add edges dialog.
+-- Use cPickle to store graph object instead of use dot script format.
+-- Rightclick menu.
+++ subgraph!
+
+++ Default template of new graph.
+
+-- Inline help. Maybe some issue can link to graphviz web site.
+++ Layout: circo, dot, fdp, neato, osage, sfdp, twopi !!! osage, sfdp is disable by pydot, so~
+++ Digraph, graph switch. Maybe should add a panel to set at the same time as Layout.
+++ Folder group at the beginning in propgrid.
+++ Replace textctrl with combobox in append item dialog.
+-- i18n
+++ Exprot more format.
+
+bug:
+
+-- All comment in dot missed after parsing.
+++ Wildcard "node" and "edge" nodes append at the end of graph
+++ "strict" missed anyway. 
+++ Not allow to append empty node and empty edge.
+++ Report error when changed graph wildcard attr and NO "graph" item in data graph. 
+++ Done! can't find unicode edge when parse script dialog process graph.
+++ The script parser split unicode Node into N parts if the node name included both unicode and number and ascii string. 

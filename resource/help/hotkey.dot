@@ -1,0 +1,43 @@
+digraph G {
+rankdir="LR";
+edge [comment="Wildcard edge", fontname="sans-serif", fontsize=10, colorscheme="blues3", color=2, fontcolor=3];
+node [fontname="serif", fontsize=13, fillcolor="1", colorscheme="blues4", color="2", fontcolor="4", style="filled"];
+subgraph "hotkey" {
+center="false";
+label="Hotkey in DotEditor";
+edge [comment="Wildcard node added automatic in EG."];
+node [comment="Wildcard node added automatic in EG."];
+subgraph "k" {
+rank="min";
+edge [comment="Wildcard node added automatic in EG."];
+node [comment="Wildcard node added automatic in EG.", shape="egg", fontname="sans-serif"];
+"k1" [label="Ctrl+N"];
+"k2" [label="Ctrl+O"];
+"k3" [label="Ctrl+S"];
+"k4" [label="Ctrl+Enter\nAlt+Enter\nAlt+S"];
+"k5" [label="Ctrl+E"];
+"k6" [label="Ctrl+Shift+S"];
+}
+
+subgraph "hk" {
+fontsize="0";
+edge [comment="subgraph edge wildcard"];
+node [comment="subgraph node wildcard", style="filled", colorscheme="bugn5", color="3", fontname="serif", shape="box", fillcolor="1", fontcolor="4"];
+"hk1" [label="Create a empyt new graph."];
+"hk2" [label="Open a existed graph file."];
+"hk3" [label="Save graph to file."];
+"hk4" [label="Edit script of current opened graph."];
+"hk5" [label="Export graph to some image format."];
+"hk6" [label="Save graph as..."];
+}
+
+hk1 -> k1;
+hk2 -> k2;
+hk3 -> k3;
+hk4 -> k4;
+hk5 -> k5;
+hk6 -> k6;
+}
+
+"welcome" [shape="box", fontsize="16", style="rounded", label="Hotkeys in DotEditor"];
+}

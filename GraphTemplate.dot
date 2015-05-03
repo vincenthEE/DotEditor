@@ -1,0 +1,8 @@
+digraph G {
+    rankdir=LR;
+    fontname="sans-serif";
+    penwidth=0.1;
+    node [fontname="serif", fontsize=13, fillcolor="1", colorscheme="blues4", color="2", fontcolor="4", style="filled"];
+    edge [fontname="sans-serif", fontsize=10, colorscheme="blues3", color=2, fontcolor=3, comment="Wildcard edge"];
+    "n1" [label="Welcome to DotEditor :)\n\n <--- select 'n1' and click minus to delete me."];
+}
