@@ -1,4 +1,13 @@
 # coding=utf8
+'''
+Copyright (R) 2015 Vincent.H <forever.h@gmail.com>
+
+Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).
+-------------------------------------------------------------------------------------
+
+This module simply extend from the "dot_parser.py" in pydot.
+'''
+
 from dot_parser import *
 import dot_parser
 from DEUtils import to_unicode

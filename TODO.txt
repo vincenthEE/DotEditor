@@ -21,6 +21,7 @@ Step to publish.
 -- some connect between fillcolor -> styled.filled, plaintext -> styled.filled
 ++ Create temp files in system-temp-directory and delete them when exit.
 ++ Check graphviz installed when start DE.
+-- Open file when draged into main window.
 
 limited feature.
 -- The wildcard 'node' and 'edge' exists only one-copy in each graph/subgraph.
@@ -54,6 +55,7 @@ Next features:
 
 bug:
 
+-- Screen blink in script dialog when script very large.
 -- All comment in dot missed after parsing.
 ++ Wildcard "node" and "edge" nodes append at the end of graph
 ++ "strict" missed anyway. 

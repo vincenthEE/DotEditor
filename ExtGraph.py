@@ -1,6 +1,9 @@
 # coding=utf8
 '''
-Copyleft (L) 2015 Vincent.H <forever.h@gmail.com>
+Copyright (R) 2015 Vincent.H <forever.h@gmail.com>
+
+Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).
+-------------------------------------------------------------------------------------
 
 This module define the extended functions of graph data. 
 

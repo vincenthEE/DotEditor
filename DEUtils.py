@@ -1,11 +1,20 @@
 # coding=utf8
+'''
+Copyright (R) 2015 Vincent.H <forever.h@gmail.com>
+
+Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).
+-------------------------------------------------------------------------------------
+
+This module include some util functions.
+'''
+
 import csv
 import ExtParser
 import wx
 import os, sys
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
+    """ Get absolute path to resource, works for "--onefile" in PyInstaller. """
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS

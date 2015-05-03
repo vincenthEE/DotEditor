@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="998.29883mm"
-   height="714.89215mm"
-   viewBox="0 0 3537.2793 2533.0824"
+   width="1003.9304mm"
+   height="779.13092mm"
+   viewBox="0 0 3557.2338 2760.7001"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -74,9 +74,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.1767767"
-     inkscape:cx="376.37268"
-     inkscape:cy="1659.7589"
+     inkscape:zoom="0.25000001"
+     inkscape:cx="1329.4312"
+     inkscape:cy="1178.6873"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -92,8 +92,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid4392"
-       originx="1501.7263"
-       originy="968.64853" />
+       originx="1521.6807"
+       originy="968.6485" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -111,13 +111,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1501.7263,512.07155)">
+     transform="translate(1521.6807,739.68938)">
     <g
        id="g4717"
        inkscape:export-filename="d:\Users\wxm\Desktop\graph-color.png"
        inkscape:export-xdpi="5.2873921"
        inkscape:export-ydpi="5.2873921"
-       transform="translate(3712,-736)">
+       transform="translate(3714.8284,-580.43651)">
       <rect
          inkscape:export-ydpi="6.0427418"
          inkscape:export-xdpi="6.0427418"
@@ -158,7 +158,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\node-color.png"
        inkscape:export-xdpi="5.2873988"
        inkscape:export-ydpi="5.2873988"
-       transform="translate(3712,-736)">
+       transform="translate(3714.8284,-580.43651)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -189,7 +189,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\edge-color.png"
        inkscape:export-xdpi="5.2873988"
        inkscape:export-ydpi="5.2873988"
-       transform="translate(3712,-736)">
+       transform="translate(3714.8284,-580.43651)">
       <rect
          inkscape:export-ydpi="6.04"
          inkscape:export-xdpi="6.04"
@@ -220,7 +220,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\graph-gray.png"
        inkscape:export-xdpi="5.2873921"
        inkscape:export-ydpi="5.2873921"
-       transform="translate(3712,-736)">
+       transform="translate(3712,-639.83348)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -251,7 +251,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\node-gray.png"
        inkscape:export-xdpi="5.2873993"
        inkscape:export-ydpi="5.2873993"
-       transform="translate(3712,-736)">
+       transform="translate(3723.3137,-617.20606)">
       <rect
          inkscape:export-ydpi="6.0427418"
          inkscape:export-xdpi="6.0427418"
@@ -282,7 +282,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\edge-gray.png"
        inkscape:export-xdpi="5.2873974"
        inkscape:export-ydpi="5.2873974"
-       transform="translate(3712,-736)">
+       transform="translate(3683.7157,-614.37764)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -313,7 +313,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\graph-expand.png"
        inkscape:export-xdpi="5.2873974"
        inkscape:export-ydpi="5.2873974"
-       transform="translate(3712,-736)">
+       transform="translate(3714.8284,-580.43651)">
       <rect
          inkscape:export-ydpi="6.0427418"
          inkscape:export-xdpi="6.0427418"
@@ -1026,5 +1026,36 @@
            d="m -3801.188,606.10293 45.3948,0 0,29.05136 -22.9566,0 0,10.19693 19.9204,0 0,23.18618 -19.9204,0 0,9.97476 23.1047,0 0,26.45201 -45.5429,0 z" />
       </g>
     </g>
+    <rect
+       style="opacity:1;fill:#b2df8a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4279"
+       width="3026.417"
+       height="246.07315"
+       x="-1450.8146"
+       y="-668.82324"
+       rx="0"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-1357.4847"
+       y="-559.06293"
+       id="text4263"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4265"
+         x="-1357.4847"
+         y="-559.06293"
+         style="font-size:60px">Copyright (R) 2015 Vincent.H &lt;forever.h@gmail.com&gt;</tspan><tspan
+         sodipodi:role="line"
+         x="-1357.4847"
+         y="-484.06293"
+         id="tspan4267"
+         style="font-size:60px">Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).</tspan><tspan
+         sodipodi:role="line"
+         x="-1357.4847"
+         y="-409.06293"
+         id="tspan4273"
+         style="font-size:60px" /></text>
   </g>
 </svg>

@@ -1,6 +1,9 @@
 # coding=utf8
 '''
-Copyleft (L) 2015 Vincent.H <forever.h@gmail.com>
+Copyright (R) 2015 Vincent.H <forever.h@gmail.com>
+
+Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).
+-------------------------------------------------------------------------------------
 
 A Dot file Editor to make the great graphviz tools easier to beginner.
 
@@ -9,7 +12,7 @@ To change the UI layout, edit the DotEditor.fbp by "wxFormBuilder". (http://sour
 
 The graph core module "ExtGraph.py" base on the PyDot project. (https://github.com/erocarrera/pydot)
 
-To modified the attributes define of dot language, edit the AttrsDef.py.
+To modified the attributes define of dot language, edit the "AttrsDef.py".
 '''
 
 import os, wx, types, time, shutil

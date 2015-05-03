@@ -1,3 +1,15 @@
+# coding=utf8
+'''
+Copyright (R) 2015 Vincent.H <forever.h@gmail.com>
+
+Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).
+-------------------------------------------------------------------------------------
+
+This module define all propgrid class and functions used in main_frame.
+
+Some editor dialog use the singleton method to promote efficiency.
+'''
+
 import wx.propgrid as wxpg
 import AttrsDef
 import wx, types, colour
@@ -736,7 +748,7 @@ map_type2class = {'string':         DotStringProperty,
                   'enum_combine':   DotEnumCombineProperty,
                   'enum_nodeshape': DotEnumNodeShapeProperty,
                   'enum_arrowtype': DotEnumArrowTypeProperty,
-                  'img_file':       wxpg.ImageFileProperty, #DotImageFileProperty,
+                  'img_file':       wxpg.ImageFileProperty, 
                   } 
 
 
