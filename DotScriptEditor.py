@@ -53,11 +53,23 @@ def parse_dot(script):
         result.append(r)
         
     return result
+
+def _is_same_color(textAtt1, textAtt2):
+    if textAtt1.GetTextColour().GetRGB() == textAtt2.GetTextColour().GetRGB():
+        return True
+    else:
+        return False
     
 class DS(DialogScript):
     '''Dialog to edit dot script.'''
     def __init__(self, parent):
         DialogScript.__init__(self, parent)
+        
+        self.m_text_script.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, 
+                                           wx.FONTSTYLE_NORMAL, 
+                                           wx.FONTWEIGHT_NORMAL, 
+                                           faceName='Consolas')
+                                   )
         
         colors = [wx.Colour(31, 120, 180), \
                   wx.Colour(51, 160, 44), \
@@ -66,12 +78,13 @@ class DS(DialogScript):
                   ]
         
         self.font_dict = {
+            'PLAIN':            wx.TextAttr('#000000'),
             'QUOTED_STRING':    wx.TextAttr(colors[0]),
-            'COMMENT':          wx.TextAttr(colors[0]), 
+            'COMMENT':          wx.TextAttr(colors[1]), 
             'STRICT':           wx.TextAttr(colors[3]), 
             'KEYWORD':          wx.TextAttr(colors[3]),
             'EDGE_LINK':        wx.TextAttr(colors[3]),
-            'PAREN':            wx.TextAttr(colors[1]),                
+            'PAREN':            wx.TextAttr(colors[2]),                
         }
         
         #self.m_text_script.Bind(wx.EVT_KEY_DOWN, self.onTab)
@@ -84,13 +97,61 @@ class DS(DialogScript):
             event.EventObject.Navigate()
         event.Skip()
     
-    def onTextEnter(self, event):
+    def light_script_line(self, line):
+        '''Syntax highlight the specified line.'''
+        l_begin = self.m_text_script.XYToPosition(0, line)
+        l_len = len(self.m_text_script.GetLineText(line))
+        l_end = self.m_text_script.XYToPosition(l_len, line)
+
+        script = self.m_text_script.GetValue()
+        
+        ttable = parse_dot(script)
+
+        for t in ttable:
+            if l_begin <= t[1] <= l_end or l_begin <= t[2] <= l_end: 
+                self.m_text_script.SetStyle(t[1], t[2], self.font_dict[t[0]])
+                if t[2] < l_end:
+                    self.m_text_script.SetStyle(t[2], l_end, self.font_dict['PLAIN'])
+        return
+    
+    def light_script_all(self):
+        '''Syntax highlight all script.'''
         script = self.m_text_script.GetValue()
         ttable = parse_dot(script)
 
         for t in ttable:
             self.m_text_script.SetStyle(t[1], t[2], self.font_dict[t[0]])
+    
+    # A lock var to disable onText function when SetScript working.
+    highlight_lock = False
         
+    def SetScript(self, text):
+        self.m_text_script.SetValue(text)
+        
+        self.highlight_lock = True
+        self.light_script_all()
+        self.highlight_lock = False
+        
+    def onText(self, event):
+        
+        if self.highlight_lock:
+            return
+        
+        pos = self.m_text_script.GetInsertionPoint()
+        _, line = self.m_text_script.PositionToXY(pos)
+        
+        self.light_script_line(line)
+        
+        return
+    
+    def onTextEnter(self, event):
+
+        pos = self.m_text_script.GetInsertionPoint()
+        _, line = self.m_text_script.PositionToXY(pos)
+
+        if line -1 > 0:
+            self.light_script_line(line-1)
+
         return
     
     def onOK(self, event):
@@ -99,14 +160,14 @@ class DS(DialogScript):
         Else highlight the error line in editor. 
         '''
         script = self.m_text_script.GetValue().strip()
-        ### TODO:Get strict status here.
+        ### Get strict status here.
         strict_status = False
         if script[:6].lower() == 'strict':
             strict_status = True
             
         try:
             g = ExtParser.parse_string(script.encode('utf8'))
-            ### TODO: Hack the strcit status cause bug of pydot.
+            ### Hack the strcit status cause bug of pydot.
             g.set_strict(strict_status)
             
             self.graph = ExtGraph.ExtGraph(obj_dict=g.obj_dict)

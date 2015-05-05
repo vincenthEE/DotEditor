@@ -19,7 +19,8 @@ import os, wx, types, time, shutil
 import wx.propgrid as wxpg
 import ExtGraph as ExtGraph
 
-from UIClass import MainFrame, DialogAppend, DialogAbout, DialogGraphSetting
+from UIClass import MainFrame, DialogAppend, DialogAbout, DialogGraphSetting, \
+                    DialogHelp
 from DotScriptEditor import DS
 import ExtParser
 import AttrsDef
@@ -40,6 +41,54 @@ G_FORMAT_WILDCARD = "Portable Network Graphics format (*.png)|*.png"+\
                     "|PostScript for PDF (*.ps2)|*.ps2"+\
                     "|GIF Format (*.gif)|*.gif"
 
+
+class DH(DialogHelp):
+    '''A dialog to show help graph :) '''
+    
+    def __init__(self, parent, help_topic):
+        DialogHelp.__init__(self, parent)
+        
+        self.change_help_topic(help_topic)
+        
+        self.m_panel_paint.Bind(wx.EVT_ERASE_BACKGROUND, self.onEraseBackground)
+    
+    def change_help_topic(self, help_topic):
+        
+        help_topic = help_topic.strip().lower()
+        self.SetTitle('DotEditor Help - %s'%help_topic.capitalize())
+        self.update_graph( ExtGraph.ExtGraph(template_file=resource_path('resource/help/%s.dot'%help_topic)) )
+    
+    def onEraseBackground(self, event):
+        
+        dc = wx.ClientDC(self.m_panel_paint)
+        dc.Clear()
+        
+        img = self.data_graph.get_bitmap()    
+        x1, y1 = self.m_panel_paint.GetViewStart()
+        dc.DrawBitmap(img, -1*20*x1,-1*20*y1)
+            
+        return
+    
+    def update_graph(self, graph):
+        '''Update data graph and then refresh the whole UI. IF graph == None, just refresh the preview.'''
+        
+        try:
+            del self.data_graph
+        except:
+            pass
+        
+        self.data_graph = ExtGraph.ExtGraph(obj_dict=graph.obj_dict)
+        
+        ### Refresh image panel.
+        self.data_graph.refresh_bitmap()
+        img = self.data_graph.get_bitmap()
+
+        self.m_panel_paint.SetVirtualSize((img.GetWidth(), \
+                                           img.GetHeight()))
+        self.m_panel_paint.SetScrollRate(20,20)
+        self.m_panel_paint.Refresh()
+        
+        return
 
 class DA(DialogAppend):
     '''Append item dialog.'''
@@ -261,12 +310,16 @@ class MF(MainFrame):
     
     is_data_changed = False
     file_path = None
+    help_window = None
+    bitmap_zoom_ratio = 0.4
+    __zoom_cache = (bitmap_zoom_ratio, None, None)
+    is_dragging = False
     
     def __init__(self, parent=None):
         MainFrame.__init__(self, parent)
         
         # Set icon of buttons. (Cause of the resource path problem in pyinstaller~~~)
-        for btn_name in ['new', 'open', 'save', 'export', 'script', 'add', 'minus', 'graphsetting']:
+        for btn_name in ['new', 'open', 'save', 'export', 'script', 'add', 'minus', 'graphsetting', 'help']:
             set_s = 'self.m_bpButton_%s.SetBitmap( wx.Bitmap( resource_path("resource/icon/%s.png"), wx.BITMAP_TYPE_ANY ) )' 
             eval(set_s%(btn_name,btn_name))
             set_s = 'self.m_bpButton_%s.SetBitmapHover( wx.Bitmap( resource_path("resource/icon/%s-highlight.png"), wx.BITMAP_TYPE_ANY ) )' 
@@ -275,6 +328,19 @@ class MF(MainFrame):
         # Set icon.
         self.SetIcon(wx.Icon(resource_path('resource/icon/DE.ico'), wx.BITMAP_TYPE_ICO))    
         self.colorDB = wx.ColourDatabase()
+    
+        # Build help popmenu.
+        self.m_menu_help = wx.Menu()
+        help_list = ['Tips', 'Hotkey']
+        for item in help_list:
+            m_id = wx.NewId()
+            self.m_menu_help.Append(m_id, item)
+            self.m_menu_help.Bind(wx.EVT_MENU, self.onHelpMenu, id=m_id )
+            
+        self.m_menu_help.AppendSeparator()
+        m_id = wx.NewId()
+        self.m_menu_help.Append(m_id, '&About')
+        self.m_menu_help.Bind(wx.EVT_MENU, self.onAbout, id=m_id )
     
         ### Init some icon in m_tree.
         iList = wx.ImageList(16,16)
@@ -306,7 +372,7 @@ class MF(MainFrame):
         self.image_list['arrow_style'] = normalize_imglist(img_list)  
                         
         ### Init graph. -----------------------------------------------------------
-        self.update_graph( ExtGraph.ExtGraph(template_file=resource_path('resource/help/hotkey.dot')) )                        
+        self.update_graph( ExtGraph.ExtGraph('G') )          
         
         ### Register hotkey.
         self.accel_tb = wx.AcceleratorTable([(wx.ACCEL_CTRL, ord('n'), self.m_bpButton_new.GetId()),
@@ -325,6 +391,12 @@ class MF(MainFrame):
 
         ### Bind events.
         self.m_panel_paint.Bind(wx.EVT_ERASE_BACKGROUND, self.onEraseBackground)
+        
+        self.m_panel_paint.Bind(wx.EVT_MOUSEWHEEL, self.onMouseZoom)
+        self.m_panel_paint.Bind(wx.EVT_MOTION, self.onMouseMove)
+        self.m_panel_paint.Bind(wx.EVT_LEFT_UP, self.onLeftButtonUp)
+        self.m_panel_paint.Bind(wx.EVT_LEFT_DOWN, self.onLeftButtonDown)
+        
         self.Bind(wx.EVT_CLOSE, self.onClose)
         self.m_pgManager1.Bind(wxpg.EVT_PG_SELECTED, self.onPGActive)
         
@@ -371,6 +443,32 @@ class MF(MainFrame):
         
         return
     
+    def __calc_best_zoom_ratio(self):
+        
+        if not self.data_graph.get_bitmap().IsOk():
+            return 1.0
+        
+        w,h = self.data_graph.get_bitmap().GetSize()
+        w_win, h_win = self.m_panel_paint.GetSize()
+        
+        ratio = min(w_win*1.0/w, h_win*1.0/h, 1.0)
+        
+        return ratio
+    
+    def __zoom_img(self, bitmap, zoom_ratio):
+        
+        zc = self.__zoom_cache 
+        if zc[0] != zoom_ratio or zc[1] is None or zc[2] != bitmap:
+            img = bitmap.ConvertToImage()
+            w, h = img.GetSize()
+            img = img.Scale(w*zoom_ratio, h*zoom_ratio, wx.IMAGE_QUALITY_HIGH)
+            result = img.ConvertToBitmap()
+            self.__zoom_cache = (zoom_ratio, result, bitmap)
+        else:
+            result = zc[1]
+            
+        return result
+    
     def update_graph(self, graph=None):
         '''Updata data graph and then refresh the whole UI. IF graph == None, just refresh the preview.'''
         
@@ -391,14 +489,28 @@ class MF(MainFrame):
             
             self.m_tree.ExpandAll()
             self.m_tree.SelectItem(root)
+        
+            # Refresh image panel.
+            self.data_graph.refresh_bitmap()
+        
+            # Set zoom ratio.
+            self.bitmap_zoom_ratio = 1.0
+            self.m_staticText_zoom.SetLabel('Zoom:%3d%%'%100)
+        
+        else:
             
-        ### Refresh image panel.
-        self.data_graph.refresh_bitmap()
+            # Just refresh image panel.
+            self.data_graph.refresh_bitmap()
+        
+        # Set scroll.
         img = self.data_graph.get_bitmap()
 
-        self.m_panel_paint.SetVirtualSize((img.GetWidth(), \
-                                           img.GetHeight()))
+        vw = img.GetWidth()*self.bitmap_zoom_ratio
+        vh = img.GetHeight()*self.bitmap_zoom_ratio
+
+        self.m_panel_paint.SetVirtualSize((vw, vh))
         self.m_panel_paint.SetScrollRate(20,20)
+        #self.m_panel_paint.SetScrollbars(1,1,vw, vh)
         self.m_panel_paint.Refresh()
         
         ### Set window title.
@@ -414,19 +526,131 @@ class MF(MainFrame):
         self.SetTitle(title)
         
         return
+
+    def changeZoom(self, zoom_ratio):
+        '''Change the zoom of preview panel.'''
+        
+        if zoom_ratio == self.bitmap_zoom_ratio:
+            return True
+        
+        if zoom_ratio > 2.0: zoom_ratio = 2.0
+        
+        min_zoom = self.__calc_best_zoom_ratio()
+        if zoom_ratio < min_zoom:
+            return False
+        else:
+            self.bitmap_zoom_ratio = zoom_ratio
+            self.m_staticText_zoom.SetLabel('Zoom:%3d%%'%(zoom_ratio*100.0))
+        
+        img = self.data_graph.get_bitmap()
+        self.m_panel_paint.SetVirtualSize((img.GetWidth()*self.bitmap_zoom_ratio, \
+                                           img.GetHeight()*self.bitmap_zoom_ratio))
+        
+        self.m_panel_paint.SetScrollRate(20,20)
+        self.m_panel_paint.Refresh()
+        
+        return True
+              
+    def onZoom100(self, event):
+        '''Reset the zoom ratio to 100%.'''
+        
+        self.changeZoom(1.0)
     
+    def onMouseZoom(self, event):
+        '''Capture the motion of "Ctrl+wheel" to zoom.'''
+
+        if event.ControlDown():
+            
+            wd = event.GetWheelRotation()
+            zoom_ratio = self.bitmap_zoom_ratio
+            if wd > 0:
+                cursor = wx.StockCursor(wx.CURSOR_MAGNIFIER)
+                self.m_panel_paint.SetCursor(cursor)
+                zoom_ratio = self.bitmap_zoom_ratio + 0.05
+            elif wd < 0:
+                cursor = wx.StockCursor(wx.CURSOR_MAGNIFIER)
+                self.m_panel_paint.SetCursor(cursor)
+                zoom_ratio = self.bitmap_zoom_ratio - 0.05
+                
+            self.changeZoom(zoom_ratio)
+            cursor = wx.StockCursor(wx.CURSOR_DEFAULT)
+            self.m_panel_paint.SetCursor(cursor)
+
+        return
+    
+    def onMouseMove(self, event):
+        '''Capture the "drag" motion in preview window.'''
+        self.CurrentCursorPos = event.GetPosition()
+
+        if self.is_dragging:
+            
+            p = self.m_panel_paint.GetScrollPixelsPerUnit()
+
+            diff = [0.0, 0.0]
+            diff[0] = (self.LastClickPos[0] - self.CurrentCursorPos[0]) / p[0]
+            diff[1] = (self.LastClickPos[1] - self.CurrentCursorPos[1]) / p[1]
+
+            start_pos = self.m_panel_paint.GetViewStart()
+            
+            x = diff[0]+start_pos[0]
+            y = diff[1]+start_pos[1]
+
+            self.m_panel_paint.Scroll(x, y)
+
+            ### Record the old position. If some direction no enough step to 
+            ### scroll, leave it alone.
+            if diff[0] != 0:
+                if diff[1] != 0:
+                    self.LastClickPos = self.CurrentCursorPos
+                else:
+                    self.LastClickPos[0] = self.CurrentCursorPos[0]
+            else:
+                if diff[1] != 0:
+                    self.LastClickPos[1] = self.CurrentCursorPos[1]
+                else:
+                    pass
+            
+            self.m_panel_paint.Refresh()
+
+    def onLeftButtonUp(self, event):
+        '''End the drag motion.'''
+        
+        self.is_dragging = False
+        self.CurrentCursorPos = event.GetPosition()
+
+        cursor = wx.StockCursor(wx.CURSOR_DEFAULT)
+        self.SetCursor(cursor)
+
+    def onLeftButtonDown(self, event):
+        '''Start the drag motion.'''
+        cursor = wx.StockCursor(wx.CURSOR_SIZING)
+        self.SetCursor(cursor)
+
+        self.CurrentCursorPos = event.GetPosition()
+
+        self.is_dragging = True
+
+        self.LastClickPos = self.CurrentCursorPos
+ 
+        event.Skip()
+        
     def onEraseBackground(self, event):
+        '''Paint the preview window.'''
+        img = self.data_graph.get_bitmap()
+        if not img.IsOk:
+            return
         
         dc = wx.ClientDC(self.m_panel_paint)
         dc.Clear()
         
-        img = self.data_graph.get_bitmap()    
+        img = self.__zoom_img( img, self.bitmap_zoom_ratio )    
         x1, y1 = self.m_panel_paint.GetViewStart()
         dc.DrawBitmap(img, -1*20*x1,-1*20*y1)
             
         return
-    
+        
     def onGraphSetting(self, event):
+        
         dlg = DGS(self)
         r = dlg.ShowModal()
         if r == wx.ID_OK:
@@ -855,14 +1079,40 @@ class MF(MainFrame):
     
     def onViewSource(self, event):
         dlg = DS(self)
-        dlg.m_text_script.SetValue(self.data_graph.EG_to_string().decode('utf8'))
+        dlg.SetScript(self.data_graph.EG_to_string().decode('utf8'))
         if dlg.ShowModal() == wx.ID_OK:
             self.update_graph(dlg.graph)
             self.is_data_changed = True
         dlg.Destroy()
         
         return
-         
+
+    def onHelpMenu(self, event):
+        m_id = event.GetId()
+        label = self.m_menu_help.GetLabel(m_id)
+        if self.help_window is None:
+            self.help_window = DH(self, label)
+        else:
+            self.help_window.change_help_topic(label)
+
+        self.help_window.Show()
+        
+        return
+
+    def onHelp(self, event):
+        x, y = self.m_bpButton_help.GetPosition()
+        _, h = self.m_bpButton_help.GetSize()
+        
+        y += h
+        
+        self.PopupMenuXY( self.m_menu_help, x, y)
+        
+    def onAbout(self, event):
+        ad = DialogAbout(self)
+        ad.m_bitmap1.SetBitmap(wx.Bitmap(resource_path("resource\icon\DE.ico")))
+        ad.m_bitmap1.Layout()
+        ad.ShowModal()
+        
     def onClose(self, event):
         if self.is_data_changed:
             md = wx.MessageDialog(self, 
@@ -875,10 +1125,7 @@ class MF(MainFrame):
                 return
                     
         wx.Exit()
-        
-    def onAbout(self, event):
-        ad = DialogAbout(self)
-        ad.ShowModal()
+
     
 def __check_graphviz():    
     import pydot
@@ -889,8 +1136,8 @@ def __check_graphviz():
 
 if __name__ == "__main__":
     
-    app = wx.App(redirect=True, filename="./log.txt")
-    #app = wx.App()
+    #app = wx.App(redirect=True, filename="./log.txt")
+    app = wx.App()
     
     if not __check_graphviz():
         wx.MessageBox('Please confirm graphviz installed correct in the computer, '+\

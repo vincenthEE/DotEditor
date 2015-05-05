@@ -8,20 +8,21 @@ Step to publish.
 -- Show helps in preview window :)
 -- Drag and drop in tree.
 -- Undo, redo
--- Add GPL declaration.
--- About Dialog. Maybe still use preview window.
+++ Add GPL declaration.
+++ About Dialog. Maybe still use preview window.
 -- Pop alert when script changed and user cancel or close the script dialog.
 ++ Highlight the source code panel. Maybe scintilla is a good choice.
 ++ Dot Editor Icon and Logo.
 ++ Move wildcard item to the beginning of graph.
-+- Keyboard shortcut.
--- Zoom and pan
+++ Keyboard shortcut.
+++ Zoom and pan
 -- Restruct all attrs group. Keep mostly used attr on upside.
 -- Test, fix bugs.
 -- some connect between fillcolor -> styled.filled, plaintext -> styled.filled
 ++ Create temp files in system-temp-directory and delete them when exit.
 ++ Check graphviz installed when start DE.
 -- Open file when draged into main window.
+-- Label pg need bigger editor.
 
 limited feature.
 -- The wildcard 'node' and 'edge' exists only one-copy in each graph/subgraph.

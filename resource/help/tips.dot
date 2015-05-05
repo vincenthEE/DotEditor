@@ -1,0 +1,37 @@
+digraph G {
+rankdir="LR";
+splines="true";
+penwidth="0.1";
+edge [comment="Wildcard edge", fontcolor=3, fontname="sans-serif", arrowhead="onormal", colorscheme="blues3", color=2, fontsize=10];
+node [fontname="serif", fontsize=13, fillcolor="1", colorscheme="blues4", color="2", fontcolor="4", style="filled"];
+subgraph "hint" {
+rank="min";
+edge [comment="subgraph edge wildcard"];
+node [comment="subgraph node wildcard", style="filled", colorscheme="bugn5", color="3", fontname="serif", shape="note", fillcolor="1", fontcolor="4"];
+"hint_item_list" [label="
+-- All items in a graph list in the 'Item List'\l
+-- There always have some particular item named 'node' \l
+or 'edge'. These item existed as wildcard for editing \l
+attributes of all nodes and edges.\l
+-- The gray 'G' button used to set global graph attibutes.\l
+"];
+"hint_toolbar" [label="
+-- All operations you could deal with the graph \l
+is listed on the toolbar.\l
+-- Maybe the mostly useful function is showing the \l
+script window when clicking the 'Script' button.\l
+-- Click 'Export' button would export current preview\l
+ to lots of image format.\l
+"];
+"hint_properties" [label="
+-- Almost every attributes in Graphviz 2.36 can edit in \l
+the Property Grid.\l
+-- The more known about graphviz, the better using the \l
+property grid(The same to DotEditor) \l
+-- Some advance properties should only input manually.\l
+"];
+}
+
+"hint_toolbar" -> "hint_item_list";
+"hint_item_list" -> "hint_properties";
+}

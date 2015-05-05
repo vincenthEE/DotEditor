@@ -20,7 +20,6 @@ node [comment="Wildcard node added automatic in EG.", shape="egg", fontname="san
 }
 
 subgraph "hk" {
-fontsize="0";
 edge [comment="subgraph edge wildcard"];
 node [comment="subgraph node wildcard", style="filled", colorscheme="bugn5", color="3", fontname="serif", shape="box", fillcolor="1", fontcolor="4"];
 "hk1" [label="Create a empyt new graph."];

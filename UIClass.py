@@ -32,8 +32,8 @@ class MainFrame ( wx.Frame ):
 		fgSizer14.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
 		self.m_panel16 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.NO_BORDER|wx.TAB_TRAVERSAL )
-		fgSizer15 = wx.FlexGridSizer( 1, 8, 0, 0 )
-		fgSizer15.AddGrowableCol( 7 )
+		fgSizer15 = wx.FlexGridSizer( 1, 10, 0, 0 )
+		fgSizer15.AddGrowableCol( 8 )
 		fgSizer15.SetFlexibleDirection( wx.BOTH )
 		fgSizer15.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
@@ -45,7 +45,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.AddSpacer( ( 8, 30), 1, wx.EXPAND, 5 )
 		
-		self.m_bpButton_new = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 40,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_new = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_new.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_new.SetBitmapHover( wx.NullBitmap )
@@ -54,7 +54,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_new, 0, wx.ALIGN_CENTER|wx.ALL|wx.EXPAND, 5 )
 		
-		self.m_bpButton_open = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 40,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_open = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_open.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_open.SetBitmapHover( wx.NullBitmap )
@@ -63,7 +63,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_open, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.m_bpButton_save = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 40,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_save = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_save.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_save.SetBitmapHover( wx.NullBitmap )
@@ -72,7 +72,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_save, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.m_bpButton_script = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 40,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_script = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_script.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_script.SetBitmapHover( wx.NullBitmap )
@@ -81,7 +81,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_script, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.m_bpButton_export = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 40,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_export = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_export.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_export.SetBitmapHover( wx.NullBitmap )
@@ -94,6 +94,14 @@ class MainFrame ( wx.Frame ):
 		self.m_button_save_as.Hide()
 		
 		fgSizer15.Add( self.m_button_save_as, 0, wx.ALL, 5 )
+		
+		
+		fgSizer15.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
+		
+		self.m_bpButton_help = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 48,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_help.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
+		
+		fgSizer15.Add( self.m_bpButton_help, 0, wx.ALL, 5 )
 		
 		
 		self.m_panel16.SetSizer( fgSizer15 )
@@ -239,7 +247,7 @@ class MainFrame ( wx.Frame ):
 		self.m_panel12 = wx.Panel( self.m_panel81, wx.ID_ANY, wx.DefaultPosition, wx.Size( -1,-1 ), wx.SIMPLE_BORDER|wx.TAB_TRAVERSAL )
 		self.m_panel12.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
 		
-		fgSizer11 = wx.FlexGridSizer( 1, 2, 0, 0 )
+		fgSizer11 = wx.FlexGridSizer( 1, 5, 0, 0 )
 		fgSizer11.AddGrowableCol( 0 )
 		fgSizer11.AddGrowableRow( 0 )
 		fgSizer11.SetFlexibleDirection( wx.BOTH )
@@ -254,6 +262,20 @@ class MainFrame ( wx.Frame ):
 		
 		
 		fgSizer11.AddSpacer( ( 0, 26), 1, wx.EXPAND, 5 )
+		
+		self.m_staticText_zoom = wx.StaticText( self.m_panel12, wx.ID_ANY, u"Zoom:100%", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_RIGHT )
+		self.m_staticText_zoom.Wrap( -1 )
+		fgSizer11.Add( self.m_staticText_zoom, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_RIGHT|wx.ALL, 5 )
+		
+		self.m_button16 = wx.Button( self.m_panel12, wx.ID_ANY, u"1:1", wx.DefaultPosition, wx.DefaultSize, wx.BU_EXACTFIT|wx.NO_BORDER )
+		self.m_button16.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 92, False, wx.EmptyString ) )
+		self.m_button16.SetForegroundColour( wx.Colour( 255, 255, 255 ) )
+		self.m_button16.SetBackgroundColour( wx.Colour( 21, 120, 180 ) )
+		
+		fgSizer11.Add( self.m_button16, 0, wx.ALIGN_CENTER|wx.FIXED_MINSIZE, 5 )
+		
+		
+		fgSizer11.AddSpacer( ( 3, 0), 1, wx.EXPAND, 5 )
 		
 		
 		self.m_panel12.SetSizer( fgSizer11 )
@@ -312,11 +334,14 @@ class MainFrame ( wx.Frame ):
 		self.m_bpButton_script.Bind( wx.EVT_BUTTON, self.onViewSource )
 		self.m_bpButton_export.Bind( wx.EVT_BUTTON, self.onExportImage )
 		self.m_button_save_as.Bind( wx.EVT_BUTTON, self.onSaveAs )
+		self.m_bpButton_help.Bind( wx.EVT_BUTTON, self.onHelp )
 		self.m_bpButton_graphsetting.Bind( wx.EVT_BUTTON, self.onGraphSetting )
 		self.m_bpButton_add.Bind( wx.EVT_BUTTON, self.onAppendItem )
 		self.m_bpButton_minus.Bind( wx.EVT_BUTTON, self.onDeleteItem )
 		self.m_tree.Bind( wx.EVT_TREE_SEL_CHANGED, self.onItemSelected )
 		self.m_pgManager1.Bind( pg.EVT_PG_CHANGED, self.onPGChanged )
+		self.m_button16.Bind( wx.EVT_BUTTON, self.onZoom100 )
+		self.m_panel_paint.Bind( wx.EVT_SIZE, self.onWindowSizeChanged )
 	
 	def __del__( self ):
 		pass
@@ -341,6 +366,9 @@ class MainFrame ( wx.Frame ):
 	def onSaveAs( self, event ):
 		event.Skip()
 	
+	def onHelp( self, event ):
+		event.Skip()
+	
 	def onGraphSetting( self, event ):
 		event.Skip()
 	
@@ -354,6 +382,12 @@ class MainFrame ( wx.Frame ):
 		event.Skip()
 	
 	def onPGChanged( self, event ):
+		event.Skip()
+	
+	def onZoom100( self, event ):
+		event.Skip()
+	
+	def onWindowSizeChanged( self, event ):
 		event.Skip()
 	
 	def m_splitter2OnIdle( self, event ):
@@ -533,10 +567,21 @@ class DialogScript ( wx.Dialog ):
 		
 		fgSizer21.Add( self.m_panel21, 1, wx.EXPAND |wx.ALL, 0 )
 		
-		self.m_text_script = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_PROCESS_ENTER|wx.TE_PROCESS_TAB|wx.TE_RICH2|wx.SIMPLE_BORDER|wx.WANTS_CHARS )
-		self.m_text_script.SetFont( wx.Font( 10, 70, 90, 90, False, "Consolas" ) )
+		self.m_panel30 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.SIMPLE_BORDER|wx.TAB_TRAVERSAL )
+		fgSizer29 = wx.FlexGridSizer( 1, 1, 0, 0 )
+		fgSizer29.AddGrowableCol( 0 )
+		fgSizer29.AddGrowableRow( 0 )
+		fgSizer29.SetFlexibleDirection( wx.BOTH )
+		fgSizer29.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
-		fgSizer21.Add( self.m_text_script, 0, wx.ALL|wx.EXPAND, 5 )
+		self.m_text_script = wx.TextCtrl( self.m_panel30, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_PROCESS_ENTER|wx.TE_PROCESS_TAB|wx.TE_RICH|wx.NO_BORDER )
+		fgSizer29.Add( self.m_text_script, 0, wx.ALL|wx.EXPAND, 0 )
+		
+		
+		self.m_panel30.SetSizer( fgSizer29 )
+		self.m_panel30.Layout()
+		fgSizer29.Fit( self.m_panel30 )
+		fgSizer21.Add( self.m_panel30, 1, wx.EXPAND |wx.ALL, 5 )
 		
 		
 		fgSizer3.Add( fgSizer21, 1, wx.EXPAND, 5 )
@@ -566,6 +611,7 @@ class DialogScript ( wx.Dialog ):
 		self.Centre( wx.BOTH )
 		
 		# Connect Events
+		self.m_text_script.Bind( wx.EVT_TEXT, self.onText )
 		self.m_text_script.Bind( wx.EVT_TEXT_ENTER, self.onTextEnter )
 		self.m_button5.Bind( wx.EVT_BUTTON, self.onOK )
 	
@@ -574,6 +620,9 @@ class DialogScript ( wx.Dialog ):
 	
 	
 	# Virtual event handlers, overide them in your derived class
+	def onText( self, event ):
+		event.Skip()
+	
 	def onTextEnter( self, event ):
 		event.Skip()
 	
@@ -588,7 +637,7 @@ class DialogScript ( wx.Dialog ):
 class DialogAbout ( wx.Dialog ):
 	
 	def __init__( self, parent ):
-		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"About DotEditor", pos = wx.DefaultPosition, size = wx.Size( 285,256 ), style = wx.DEFAULT_DIALOG_STYLE )
+		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"About DotEditor", pos = wx.DefaultPosition, size = wx.Size( 405,388 ), style = wx.DEFAULT_DIALOG_STYLE )
 		
 		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
 		
@@ -598,15 +647,53 @@ class DialogAbout ( wx.Dialog ):
 		fgSizer4.SetFlexibleDirection( wx.BOTH )
 		fgSizer4.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
-		self.m_bitmap1 = wx.StaticBitmap( self, wx.ID_ANY, wx.Bitmap( u"resource/icon/DE.ico", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, 0 )
-		fgSizer4.Add( self.m_bitmap1, 0, wx.ALL|wx.EXPAND, 5 )
+		self.m_notebook1 = wx.Notebook( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.NB_FIXEDWIDTH )
+		self.m_panel28 = wx.Panel( self.m_notebook1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		fgSizer27 = wx.FlexGridSizer( 3, 1, 0, 0 )
+		fgSizer27.AddGrowableCol( 0 )
+		fgSizer27.AddGrowableRow( 0 )
+		fgSizer27.SetFlexibleDirection( wx.BOTH )
+		fgSizer27.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
-		self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, u"DotEditor, 2015 Copyright by Vincent.H", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_bitmap1 = wx.StaticBitmap( self.m_panel28, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 64,64 ), 0 )
+		fgSizer27.Add( self.m_bitmap1, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		
+		self.m_staticText4 = wx.StaticText( self.m_panel28, wx.ID_ANY, u"Copyright by Vincent.H 2015", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText4.Wrap( -1 )
-		fgSizer4.Add( self.m_staticText4, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		self.m_staticText4.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 92, False, wx.EmptyString ) )
+		self.m_staticText4.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
 		
-		self.m_button7 = wx.Button( self, wx.ID_OK, u"&OK", wx.DefaultPosition, wx.DefaultSize, 0 )
-		fgSizer4.Add( self.m_button7, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		fgSizer27.Add( self.m_staticText4, 0, wx.ALIGN_CENTER|wx.ALL|wx.EXPAND, 5 )
+		
+		self.m_hyperlink1 = wx.HyperlinkCtrl( self.m_panel28, wx.ID_ANY, u"DotEditor Website", u"http://vincenthee.github.io/DotEditor/", wx.DefaultPosition, wx.DefaultSize, wx.HL_ALIGN_CENTRE|wx.HL_DEFAULT_STYLE )
+		self.m_hyperlink1.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 90, False, wx.EmptyString ) )
+		
+		fgSizer27.Add( self.m_hyperlink1, 0, wx.ALIGN_CENTER|wx.ALL|wx.EXPAND, 5 )
+		
+		
+		self.m_panel28.SetSizer( fgSizer27 )
+		self.m_panel28.Layout()
+		fgSizer27.Fit( self.m_panel28 )
+		self.m_notebook1.AddPage( self.m_panel28, u"&About", True )
+		self.m_panel29 = wx.Panel( self.m_notebook1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		fgSizer28 = wx.FlexGridSizer( 1, 1, 0, 0 )
+		fgSizer28.AddGrowableCol( 0 )
+		fgSizer28.AddGrowableRow( 0 )
+		fgSizer28.SetFlexibleDirection( wx.BOTH )
+		fgSizer28.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+		
+		self.m_textCtrl3 = wx.TextCtrl( self.m_panel29, wx.ID_ANY, u"Apache License\n\nVersion 2.0, January 2004\n\nhttp://www.apache.org/licenses/\n\nTERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n1. Definitions.\n\n\"License\" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n\n\"Licensor\" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n\n\"Legal Entity\" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, \"control\" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n\n\"You\" (or \"Your\") shall mean an individual or Legal Entity exercising permissions granted by this License.\n\n\"Source\" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.\n\n\"Object\" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n\n\"Work\" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).\n\n\"Derivative Works\" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.\n\n\"Contribution\" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, \"submitted\" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as \"Not a Contribution.\"\n\n\"Contributor\" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.\n\n2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.\n\n3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.\n\n4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:\n\nYou must give any other recipients of the Work or Derivative Works a copy of this License; and\nYou must cause any modified files to carry prominent notices stating that You changed the files; and\nYou must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and\nIf the Work includes a \"NOTICE\" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License. \n\nYou may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.\n5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.\n\n6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.\n\n7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.\n\n8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.\n\n9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.\n\nEND OF TERMS AND CONDITIONS", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_READONLY|wx.SIMPLE_BORDER )
+		self.m_textCtrl3.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
+		
+		fgSizer28.Add( self.m_textCtrl3, 0, wx.ALL|wx.EXPAND, 5 )
+		
+		
+		self.m_panel29.SetSizer( fgSizer28 )
+		self.m_panel29.Layout()
+		fgSizer28.Fit( self.m_panel29 )
+		self.m_notebook1.AddPage( self.m_panel29, u"Licenses", False )
+		
+		fgSizer4.Add( self.m_notebook1, 1, wx.EXPAND |wx.ALL, 5 )
 		
 		
 		self.SetSizer( fgSizer4 )
@@ -1030,5 +1117,38 @@ class ColorSchemeDialog ( wx.Dialog ):
 	# Virtual event handlers, overide them in your derived class
 	def onSearch( self, event ):
 		event.Skip()
+	
+
+###########################################################################
+## Class DialogHelp
+###########################################################################
+
+class DialogHelp ( wx.Dialog ):
+	
+	def __init__( self, parent ):
+		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 612,536 ), style = wx.DEFAULT_DIALOG_STYLE|wx.MAXIMIZE_BOX|wx.RESIZE_BORDER )
+		
+		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+		
+		fgSizer29 = wx.FlexGridSizer( 1, 1, 0, 0 )
+		fgSizer29.AddGrowableCol( 0 )
+		fgSizer29.AddGrowableRow( 0 )
+		fgSizer29.SetFlexibleDirection( wx.BOTH )
+		fgSizer29.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+		
+		self.m_panel_paint = wx.ScrolledWindow( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.HSCROLL|wx.SIMPLE_BORDER|wx.VSCROLL )
+		self.m_panel_paint.SetScrollRate( 5, 5 )
+		self.m_panel_paint.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOW ) )
+		
+		fgSizer29.Add( self.m_panel_paint, 1, wx.EXPAND |wx.ALL, 8 )
+		
+		
+		self.SetSizer( fgSizer29 )
+		self.Layout()
+		
+		self.Centre( wx.BOTH )
+	
+	def __del__( self ):
+		pass
 	
 

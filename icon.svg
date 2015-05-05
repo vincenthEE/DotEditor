@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1003.9304mm"
-   height="779.13092mm"
-   viewBox="0 0 3557.2338 2760.7001"
+   width="960.97296mm"
+   height="540.66919mm"
+   viewBox="0 0 3405.0223 1915.757"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -74,9 +74,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25000001"
-     inkscape:cx="1329.4312"
-     inkscape:cy="1178.6873"
+     inkscape:zoom="0.1767767"
+     inkscape:cx="2438.8582"
+     inkscape:cy="1097.7225"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -92,8 +92,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid4392"
-       originx="1521.6807"
-       originy="968.6485" />
+       originx="1522.7766"
+       originy="123.70534" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -103,7 +103,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -111,13 +111,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1521.6807,739.68938)">
+     transform="translate(1522.7765,739.68938)">
     <g
        id="g4717"
        inkscape:export-filename="d:\Users\wxm\Desktop\graph-color.png"
        inkscape:export-xdpi="5.2873921"
        inkscape:export-ydpi="5.2873921"
-       transform="translate(3714.8284,-580.43651)">
+       transform="translate(2979.4374,-546.49539)">
       <rect
          inkscape:export-ydpi="6.0427418"
          inkscape:export-xdpi="6.0427418"
@@ -158,7 +158,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\node-color.png"
        inkscape:export-xdpi="5.2873988"
        inkscape:export-ydpi="5.2873988"
-       transform="translate(3714.8284,-580.43651)">
+       transform="translate(2922.8689,-569.12281)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -189,7 +189,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\edge-color.png"
        inkscape:export-xdpi="5.2873988"
        inkscape:export-ydpi="5.2873988"
-       transform="translate(3714.8284,-580.43651)">
+       transform="translate(2956.81,-552.15224)">
       <rect
          inkscape:export-ydpi="6.04"
          inkscape:export-xdpi="6.04"
@@ -220,7 +220,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\graph-gray.png"
        inkscape:export-xdpi="5.2873921"
        inkscape:export-ydpi="5.2873921"
-       transform="translate(3712,-639.83348)">
+       transform="translate(2976.609,-605.89236)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -251,7 +251,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\node-gray.png"
        inkscape:export-xdpi="5.2873993"
        inkscape:export-ydpi="5.2873993"
-       transform="translate(3723.3137,-617.20606)">
+       transform="translate(2931.3542,-605.89236)">
       <rect
          inkscape:export-ydpi="6.0427418"
          inkscape:export-xdpi="6.0427418"
@@ -282,7 +282,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\edge-gray.png"
        inkscape:export-xdpi="5.2873974"
        inkscape:export-ydpi="5.2873974"
-       transform="translate(3683.7157,-614.37764)">
+       transform="translate(2925.6973,-586.09337)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -313,7 +313,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\graph-expand.png"
        inkscape:export-xdpi="5.2873974"
        inkscape:export-ydpi="5.2873974"
-       transform="translate(3714.8284,-580.43651)">
+       transform="translate(2922.8689,-540.83854)">
       <rect
          inkscape:export-ydpi="6.0427418"
          inkscape:export-xdpi="6.0427418"
@@ -340,20 +340,19 @@
            sodipodi:role="line">G</tspan></text>
     </g>
     <g
-       id="g4752"
+       id="g4485"
        inkscape:export-filename="d:\Users\wxm\Desktop\new.png"
-       inkscape:export-xdpi="7.5853839"
-       inkscape:export-ydpi="7.5853839"
-       transform="translate(3712,-736)">
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
       <rect
          rx="38.207417"
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          ry="38.900547"
-         y="1296.2418"
-         x="-4468.9087"
-         height="203.83762"
-         width="448.48737"
+         y="550.60217"
+         x="-1481.0449"
+         height="246.83765"
+         width="506.4873"
          id="rect4136-2-4"
          style="opacity:1;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:#b0b0b0;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
@@ -361,13 +360,13 @@
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6"
-         y="1466.4711"
-         x="-4395.9307"
+         y="742.33154"
+         x="-1374.0669"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1466.4711"
-           x="-4395.9307"
+           y="742.33154"
+           x="-1374.0669"
            id="tspan4164-3-2"
            sodipodi:role="line">N</tspan></text>
       <text
@@ -375,45 +374,45 @@
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-0"
-         y="1447.6267"
-         x="-4276.5908"
+         y="726.63989"
+         x="-1254.7271"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1447.6267"
-           x="-4276.5908"
+           y="726.63989"
+           x="-1254.7271"
            id="tspan4164-3-2-5"
            sodipodi:role="line">EW</tspan></text>
     </g>
     <g
-       id="g4780"
+       id="g4499"
+       transform="translate(10.585327,0)"
        inkscape:export-filename="d:\Users\wxm\Desktop\save.png"
-       inkscape:export-xdpi="7.5853839"
-       inkscape:export-ydpi="7.5853839"
-       transform="translate(3712,-736)">
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
       <rect
          rx="38.207417"
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          ry="38.900547"
-         y="1296.2418"
-         x="-3368.2002"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-4"
+         y="550.60217"
+         x="-364.02023"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-66"
          style="opacity:1;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:#b0b0b0;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-7"
-         y="1464.8109"
-         x="-3287.5566"
+         y="740.67139"
+         x="-265.69284"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1464.8109"
-           x="-3287.5566"
+           y="740.67139"
+           x="-265.69284"
            id="tspan4164-3-2-2"
            sodipodi:role="line">S</tspan></text>
       <text
@@ -421,45 +420,45 @@
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-0-9"
-         y="1447.3215"
-         x="-3198.2166"
+         y="726.33472"
+         x="-176.35275"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1447.3215"
-           x="-3198.2166"
+           y="726.33472"
+           x="-176.35275"
            id="tspan4164-3-2-5-9"
            sodipodi:role="line">AVE</tspan></text>
     </g>
     <g
-       id="g4794"
+       id="g4506"
+       transform="translate(-25.609619,0)"
        inkscape:export-filename="d:\Users\wxm\Desktop\script.png"
-       inkscape:export-xdpi="7.5853839"
-       inkscape:export-ydpi="7.5853839"
-       transform="translate(3712,-736)">
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
       <rect
          rx="38.207417"
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          ry="38.900547"
-         y="1292.2012"
-         x="-2766.561"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-4-9"
+         y="550.60217"
+         x="235.97977"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-2"
          style="opacity:1;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:#b0b0b0;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-7-7"
-         y="1460.7703"
-         x="-2705.446"
+         y="740.67139"
+         x="312.41776"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1460.7703"
-           x="-2705.446"
+           y="740.67139"
+           x="312.41776"
            id="tspan4164-3-2-2-3"
            sodipodi:role="line">S</tspan></text>
       <text
@@ -467,45 +466,45 @@
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-0-9-3"
-         y="1435.7125"
-         x="-2621.8203"
+         y="718.76636"
+         x="396.04349"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1435.7125"
-           x="-2621.8203"
+           y="718.76636"
+           x="396.04349"
            id="tspan4164-3-2-5-9-0"
            sodipodi:role="line">cript</tspan></text>
     </g>
     <g
-       id="g4766"
+       id="g4492"
+       transform="translate(16.780334,0)"
        inkscape:export-filename="d:\Users\wxm\Desktop\open.png"
-       inkscape:export-xdpi="7.5853839"
-       inkscape:export-ydpi="7.5853839"
-       transform="translate(3712,-736)">
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
       <rect
          rx="38.207417"
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          ry="38.900547"
-         y="1296.2418"
-         x="-3922.4858"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-4-6"
+         y="550.60217"
+         x="-934.02026"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-9"
          style="opacity:1;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:#b0b0b0;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-0-9-0"
-         y="1449.7019"
-         x="-3741.3894"
+         y="728.71509"
+         x="-719.52563"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1449.7019"
-           x="-3741.3894"
+           y="728.71509"
+           x="-719.52563"
            id="tspan4164-3-2-5-9-6"
            sodipodi:role="line">PEN</tspan></text>
       <text
@@ -513,45 +512,45 @@
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-7-5"
-         y="1464.8109"
-         x="-3890.9792"
+         y="740.67139"
+         x="-869.11548"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1464.8109"
-           x="-3890.9792"
+           y="740.67139"
+           x="-869.11548"
            id="tspan4164-3-2-2-8"
            sodipodi:role="line">O</tspan></text>
     </g>
     <g
-       id="g4815"
+       id="g4513"
+       transform="translate(-19.804687,0)"
        inkscape:export-filename="d:\Users\wxm\Desktop\export.png"
-       inkscape:export-xdpi="7.5853839"
-       inkscape:export-ydpi="7.5853839"
-       transform="translate(3712,-736)">
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
       <rect
          rx="38.207417"
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          ry="38.900547"
-         y="1288.1606"
-         x="-2207.2952"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-8"
+         y="550.60217"
+         x="793.97974"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-95"
          style="opacity:1;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:#b0b0b0;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-5"
-         y="1456.7297"
-         x="-2178.8887"
+         y="740.67139"
+         x="842.9751"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1456.7297"
-           x="-2178.8887"
+           y="740.67139"
+           x="842.9751"
            id="tspan4164-3-2-1"
            sodipodi:role="line">E</tspan></text>
       <text
@@ -559,13 +558,13 @@
          inkscape:export-xdpi="6.0427399"
          sodipodi:linespacing="125%"
          id="text4162-7-6-0-8"
-         y="1429.3221"
-         x="-2076.9775"
+         y="716.4165"
+         x="944.88623"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1429.3221"
-           x="-2076.9775"
+           y="716.4165"
+           x="944.88623"
            id="tspan4164-3-2-5-3"
            sodipodi:role="line">xport</tspan></text>
     </g>
@@ -575,237 +574,13 @@
        inkscape:export-xdpi="7.5853848"
        inkscape:export-ydpi="7.5853848"
        style="stroke:#327e2e;stroke-opacity:1"
-       transform="translate(3712,-736)">
-      <rect
-         rx="38.207417"
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         ry="38.900547"
-         y="1621.1846"
-         x="-4462.2798"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-6"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#33a02c;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-3"
-         y="1791.4138"
-         x="-4389.3018"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1791.4138"
-           x="-4389.3018"
-           id="tspan4164-3-2-7"
-           sodipodi:role="line">N</tspan></text>
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-0-4"
-         y="1772.5695"
-         x="-4269.9619"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1772.5695"
-           x="-4269.9619"
-           id="tspan4164-3-2-5-7"
-           sodipodi:role="line">EW</tspan></text>
-    </g>
-    <g
-       id="g4787"
-       inkscape:export-filename="d:\Users\wxm\Desktop\save-highlight.png"
-       inkscape:export-xdpi="7.5853848"
-       inkscape:export-ydpi="7.5853848"
-       transform="translate(3712,-736)">
-      <rect
-         rx="38.207417"
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         ry="38.900547"
-         y="1621.1846"
-         x="-3361.571"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-4-7"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#e31a1c;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-7-4"
-         y="1789.7537"
-         x="-3280.9275"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1789.7537"
-           x="-3280.9275"
-           id="tspan4164-3-2-2-0"
-           sodipodi:role="line">S</tspan></text>
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-0-9-7"
-         y="1772.2643"
-         x="-3191.5874"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1772.2643"
-           x="-3191.5874"
-           id="tspan4164-3-2-5-9-9"
-           sodipodi:role="line">AVE</tspan></text>
-    </g>
-    <g
-       id="g4801"
-       inkscape:export-filename="d:\Users\wxm\Desktop\script-highlight.png"
-       inkscape:export-xdpi="7.5853848"
-       inkscape:export-ydpi="7.5853848"
-       transform="translate(3712,-736)">
-      <rect
-         rx="38.207417"
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         ry="38.900547"
-         y="1617.1439"
-         x="-2759.9319"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-4-9-4"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ff7f00;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-7-7-7"
-         y="1785.713"
-         x="-2698.8169"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1785.713"
-           x="-2698.8169"
-           id="tspan4164-3-2-2-3-0"
-           sodipodi:role="line">S</tspan></text>
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-0-9-3-3"
-         y="1760.6553"
-         x="-2615.1912"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1760.6553"
-           x="-2615.1912"
-           id="tspan4164-3-2-5-9-0-3"
-           sodipodi:role="line">cript</tspan></text>
-    </g>
-    <g
-       id="g4773"
-       inkscape:export-filename="d:\Users\wxm\Desktop\open-highlight.png"
-       inkscape:export-xdpi="7.5853848"
-       inkscape:export-ydpi="7.5853848"
-       transform="translate(3712,-736)">
-      <rect
-         rx="38.207417"
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         ry="38.900547"
-         y="1621.1846"
-         x="-3915.8567"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-4-6-2"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#1f78b4;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-0-9-0-2"
-         y="1774.6447"
-         x="-3734.7603"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1774.6447"
-           x="-3734.7603"
-           id="tspan4164-3-2-5-9-6-3"
-           sodipodi:role="line">PEN</tspan></text>
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-7-5-0"
-         y="1789.7537"
-         x="-3884.3501"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1789.7537"
-           x="-3884.3501"
-           id="tspan4164-3-2-2-8-7"
-           sodipodi:role="line">O</tspan></text>
-    </g>
-    <g
-       id="g4808"
-       inkscape:export-filename="d:\Users\wxm\Desktop\export-highlight.png"
-       inkscape:export-xdpi="7.5853848"
-       inkscape:export-ydpi="7.5853848"
-       transform="translate(3712,-736)">
-      <rect
-         rx="38.207417"
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         ry="38.900547"
-         y="1613.1034"
-         x="-2200.666"
-         height="203.83762"
-         width="448.48737"
-         id="rect4136-2-4-8-7"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#6a3d9a;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-5-7"
-         y="1781.6725"
-         x="-2172.2595"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1781.6725"
-           x="-2172.2595"
-           id="tspan4164-3-2-1-5"
-           sodipodi:role="line">E</tspan></text>
-      <text
-         inkscape:export-ydpi="6.0427399"
-         inkscape:export-xdpi="6.0427399"
-         sodipodi:linespacing="125%"
-         id="text4162-7-6-0-8-9"
-         y="1754.2649"
-         x="-2070.3481"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="1754.2649"
-           x="-2070.3481"
-           id="tspan4164-3-2-5-3-5"
-           sodipodi:role="line">xport</tspan></text>
-    </g>
+       transform="translate(3021.8638,-724.68629)" />
     <g
        id="g4842"
        inkscape:export-filename="d:\Users\wxm\Desktop\minus.png"
        inkscape:export-xdpi="6.0427337"
        inkscape:export-ydpi="6.0427337"
-       transform="translate(3712,-736)">
+       transform="translate(5194.0958,-2314.2623)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -831,7 +606,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\minus.png"
        inkscape:export-xdpi="6.0427337"
        inkscape:export-ydpi="6.0427337"
-       transform="translate(3712,-736)">
+       transform="translate(5194.0958,-2314.2623)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -871,7 +646,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\minus.png"
        inkscape:export-xdpi="6.0427337"
        inkscape:export-ydpi="6.0427337"
-       transform="translate(3712,-736)">
+       transform="translate(5194.0958,-2314.2623)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -897,7 +672,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\minus.png"
        inkscape:export-xdpi="6.0427337"
        inkscape:export-ydpi="6.0427337"
-       transform="translate(3712,-736)">
+       transform="translate(5194.0958,-2314.2623)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -937,7 +712,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\minus.png"
        inkscape:export-xdpi="6.0427337"
        inkscape:export-ydpi="6.0427337"
-       transform="translate(3712,-736)">
+       transform="translate(5194.0958,-2314.2623)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -968,7 +743,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\minus.png"
        inkscape:export-xdpi="6.0427337"
        inkscape:export-ydpi="6.0427337"
-       transform="translate(3712,-736)">
+       transform="translate(5194.0958,-2314.2623)">
       <rect
          inkscape:export-ydpi="6.0427399"
          inkscape:export-xdpi="6.0427399"
@@ -999,7 +774,7 @@
        inkscape:export-filename="d:\Users\wxm\Desktop\icon_16.png"
        inkscape:export-xdpi="9.1732779"
        inkscape:export-ydpi="9.1732779"
-       transform="matrix(2.045045,0,0,2.045045,9040.2466,-166.85965)">
+       transform="matrix(2.045045,0,0,2.045045,10731.646,-941.84865)">
       <rect
          ry="16.396095"
          rx="15.270654"
@@ -1057,5 +832,305 @@
          y="-409.06293"
          id="tspan4273"
          style="font-size:60px" /></text>
+    <g
+       id="g4759-0"
+       inkscape:export-filename="d:\Users\wxm\Desktop\new-highlight.png"
+       inkscape:export-xdpi="7.5853848"
+       inkscape:export-ydpi="7.5853848"
+       style="stroke:#327e2e;stroke-opacity:1"
+       transform="translate(2312.3555,-442.09262)" />
+    <g
+       id="g4520"
+       inkscape:export-filename="d:\Users\wxm\Desktop\help.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="1337.9799"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-99"
+         style="opacity:1;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:#b0b0b0;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-3-4-6"
+         y="741.01318"
+         x="1538.1473"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="741.01318"
+           x="1538.1473"
+           id="tspan4164-3-2-7-0-1"
+           sodipodi:role="line">?</tspan></text>
+    </g>
+    <g
+       transform="translate(3.5123182,298.0466)"
+       id="g4485-8"
+       inkscape:export-filename="d:\Users\wxm\Desktop\new-highlight.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="-1481.0449"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-7"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#33a02c;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-9"
+         y="742.33154"
+         x="-1374.0669"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#33a02c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="742.33154"
+           x="-1374.0669"
+           id="tspan4164-3-2-3"
+           sodipodi:role="line">N</tspan></text>
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-0-1"
+         y="726.63989"
+         x="-1254.7271"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="726.63989"
+           x="-1254.7271"
+           id="tspan4164-3-2-5-2"
+           sodipodi:role="line">EW</tspan></text>
+    </g>
+    <g
+       id="g4499-4"
+       transform="translate(14.097618,298.0466)"
+       inkscape:export-filename="d:\Users\wxm\Desktop\save-highlight.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="-364.02023"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-66-3"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#e31a1c;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-7-0"
+         y="740.67139"
+         x="-265.69284"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#e31a1c;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="740.67139"
+           x="-265.69284"
+           id="tspan4164-3-2-2-85"
+           sodipodi:role="line">S</tspan></text>
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-0-9-8"
+         y="726.33472"
+         x="-176.35275"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="726.33472"
+           x="-176.35275"
+           id="tspan4164-3-2-5-9-2"
+           sodipodi:role="line">AVE</tspan></text>
+    </g>
+    <g
+       id="g4506-6"
+       transform="translate(-22.097282,298.0466)"
+       inkscape:export-filename="d:\Users\wxm\Desktop\script-highlight.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="235.97977"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-2-9"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ff7f00;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-7-7-7"
+         y="740.67139"
+         x="312.41776"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="740.67139"
+           x="312.41776"
+           id="tspan4164-3-2-2-3-3"
+           sodipodi:role="line">S</tspan></text>
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-0-9-3-5"
+         y="718.76636"
+         x="396.04349"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="718.76636"
+           x="396.04349"
+           id="tspan4164-3-2-5-9-0-7"
+           sodipodi:role="line">cript</tspan></text>
+    </g>
+    <g
+       id="g4492-5"
+       transform="translate(20.292618,298.0466)"
+       inkscape:export-filename="d:\Users\wxm\Desktop\open-highlight.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="-934.02026"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-9-2"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#1f78b4;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-0-9-0-2"
+         y="728.71509"
+         x="-719.52563"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="728.71509"
+           x="-719.52563"
+           id="tspan4164-3-2-5-9-6-9"
+           sodipodi:role="line">PEN</tspan></text>
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-7-5-1"
+         y="740.67139"
+         x="-869.11548"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#1f78b4;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="740.67139"
+           x="-869.11548"
+           id="tspan4164-3-2-2-8-7"
+           sodipodi:role="line">O</tspan></text>
+    </g>
+    <g
+       id="g4513-7"
+       transform="translate(-16.292382,298.0466)"
+       inkscape:export-filename="d:\Users\wxm\Desktop\export-highlight.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="793.97974"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-95-0"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#6a3d9a;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-5-4"
+         y="740.67139"
+         x="842.9751"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#6a3d9a;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="740.67139"
+           x="842.9751"
+           id="tspan4164-3-2-1-3"
+           sodipodi:role="line">E</tspan></text>
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-0-8-7"
+         y="716.4165"
+         x="944.88623"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:125px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#303030;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="716.4165"
+           x="944.88623"
+           id="tspan4164-3-2-5-3-2"
+           sodipodi:role="line">xport</tspan></text>
+    </g>
+    <g
+       transform="translate(3.5123182,298.0466)"
+       id="g4520-2"
+       inkscape:export-filename="d:\Users\wxm\Desktop\help-highlight.png"
+       inkscape:export-xdpi="7.7172322"
+       inkscape:export-ydpi="7.7172322">
+      <rect
+         rx="38.207417"
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         ry="38.900547"
+         y="550.60217"
+         x="1337.9799"
+         height="246.83765"
+         width="506.4873"
+         id="rect4136-2-4-99-4"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ff7f00;stroke-width:9.73099995;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="6.0427399"
+         inkscape:export-xdpi="6.0427399"
+         sodipodi:linespacing="125%"
+         id="text4162-7-6-3-4-6-4"
+         y="741.01318"
+         x="1538.1473"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;line-height:125%;font-family:'Franklin Gothic Demi';-inkscape-font-specification:'Franklin Gothic Demi';letter-spacing:0px;word-spacing:0px;fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:200px;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';fill:#ff7f00;fill-opacity:1;stroke:none;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="741.01318"
+           x="1538.1473"
+           id="tspan4164-3-2-7-0-1-9"
+           sodipodi:role="line">?</tspan></text>
+    </g>
   </g>
 </svg>
