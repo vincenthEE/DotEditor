@@ -21,23 +21,24 @@ Step to publish.
 -- some connect between fillcolor -> styled.filled, plaintext -> styled.filled
 ++ Create temp files in system-temp-directory and delete them when exit.
 ++ Check graphviz installed when start DE.
--- Open file when draged into main window.
--- Label pg need bigger editor.
+
+++ Label pg need bigger editor.
 
 limited feature.
 -- The wildcard 'node' and 'edge' exists only one-copy in each graph/subgraph.
 -- From Pydot: double quote can't be use in quoted string such as name or label.
 
 plan:
--- Upload to Github.
--- Build a small web page to publish.
+++ Upload to Github.
+++ Build a small web page to publish.
 -- Add comment to script.
 -- Maybe can replace preview with brower-window to preview in SVG format.
-
 -- Change the kernel of dot parser. Such as pygraphviz or gv_python
+
 
 Next features:
 
+-- Open file when draged into main window.
 -- Maybe can change node/edge name to strip it.
 -- Some fast Dialog such like: Graph most-used params Dialog, Add nodes dialog, Add edges dialog.
 -- Use cPickle to store graph object instead of use dot script format.

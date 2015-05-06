@@ -16,7 +16,8 @@ import wx, types, colour
 import re
 from DEUtils import remove_double_quote, get_colors_in_schcme
 from UIClass import ImageSingleChoiceDialog, ArrowTypeDialog, \
-                    ColorSingleChoiceDialog, ColorSchemeDialog
+                    ColorSingleChoiceDialog, ColorSchemeDialog, \
+                    DialogTextEditor
 import DEUtils
 import tempfile
 
@@ -24,6 +25,11 @@ import tempfile
 CS_DIALOG = None
 NS_DIALOG = None
 AT_DIALOG = None
+
+BUG_NO_DOUBLEQUOTE_MESSAGE = "I'm very Sorry, because the limit of 'Pydot' module, current "+\
+                             "all text in DotEditor not support including double-quote< \" >, "+\
+                             "you can delete them or replace them with single-quote< \' >. "+\
+                             "Sorry again :("
 
 def get_root_window(window):
     
@@ -377,6 +383,8 @@ class ATDialog(ArrowTypeDialog):
         
         self.EndModal(wx.ID_OK)
 
+
+
 class DotStringProperty(wxpg.PyProperty):
     '''
     Why this? This class existed because the build-in wxpg.PyStringProperty not trigger event when zero-length string input. 
@@ -396,6 +404,50 @@ class DotStringProperty(wxpg.PyProperty):
 
     def StringToValue(self, s, flags):
         return True, s
+    
+    def ValidateValue(self, value, validationInfo):
+        """ Let's limit the value NOT inclue double-quote.
+        """
+        # Mark the cell if validaton failred
+        validationInfo.SetFailureBehavior(wxpg.PG_VFB_MARK_CELL)
+
+        if value.find('"') >= 0:
+            wx.MessageBox(BUG_NO_DOUBLEQUOTE_MESSAGE,
+                          "Sorry, can't do this", 
+                          style=wx.OK|wx.ICON_INFORMATION)
+            return False
+
+        return (True, value)
+
+class DotBigStringProperty(DotStringProperty):
+    '''
+    A PG to edit big text such as label.
+    '''
+    def GetClassName(self):
+        return 'DotBigStringProperty'
+
+    def GetEditor(self):
+        return 'TextCtrlAndButton'
+    
+    def OnEvent(self, propgrid, primaryEditor, event):
+        
+        ok = False
+        
+        if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
+
+            dlg = DialogTextEditor(propgrid)
+            dlg.SetTitle('Input the label text')
+            
+            text = self.GetValue()
+            dlg.m_text.SetValue(text)
+    
+            if dlg.ShowModal() == wx.ID_OK:
+                text = dlg.m_text.GetValue()
+                self.m_value = text
+                self.SetValueInEvent(text)
+                ok = True
+                
+        return ok
 
 class DotFloatProperty(wxpg.PyFloatProperty):
     
@@ -483,7 +535,9 @@ class DotColorProperty(wxpg.PyProperty):
                 elif len(s) == 9: # RGBA.
                     r, g, b = colour.hex2rgb(s[:-2])
                     a = int(s[-2:], 16)
-                    return True, (255*r,255*g,255*b,255*a)
+                    return True, (255*r,255*g,255*b,a)
+                else:
+                    return False
             except:
                 return False
         # Try to parse HSV string.
@@ -510,6 +564,25 @@ class DotColorProperty(wxpg.PyProperty):
                 return False
             
             return True, s
+
+    def ValueToString(self, value, flags):
+
+        if value is None:
+            return ''
+        
+        if isinstance(value, basestring):
+            return value
+        elif isinstance(value, types.IntType):
+            return str(value)
+        elif isinstance(value, types.TupleType):
+            if len(value) == 3:
+                return '#%02x%02x%02x'%value
+            elif len(value) == 4:
+                return '#%02x%02x%02x%02x'%value
+            else:
+                return ''
+        else:
+            return ''
 
     def __get_current_scheme(self):
         # Get the colorscheme in the same propgrid.
@@ -542,25 +615,6 @@ class DotColorProperty(wxpg.PyProperty):
                 return True
             
         return False    
-
-    def ValueToString(self, value, flags):
-
-        if value is None:
-            return ''
-        
-        if isinstance(value, basestring):
-            return value
-        elif isinstance(value, types.IntType):
-            return str(value)
-        elif isinstance(value, types.TupleType):
-            if len(value) == 3:
-                return '#%02x%02x%02x'%value
-            elif len(value) == 4:
-                return '#%02x%02x%02x%02x'%value
-            else:
-                return ''
-        else:
-            return ''
     
     def SetChoices(self, choices):
         self.choices = choices
@@ -738,6 +792,7 @@ class DotEditEnumProperty(wxpg.PyStringProperty):
         return "ComboBox"
     
 map_type2class = {'string':         DotStringProperty, 
+                  'bigstring':      DotBigStringProperty,
                   'int':            wxpg.UIntProperty,
                   'bool':           wxpg.BoolProperty,
                   'float':          DotFloatProperty,

@@ -15,7 +15,7 @@ The graph core module "ExtGraph.py" base on the PyDot project. (https://github.c
 To modified the attributes define of dot language, edit the "AttrsDef.py".
 '''
 
-import os, wx, types, time, shutil
+import os, wx, types, time, shutil, math
 import wx.propgrid as wxpg
 import ExtGraph as ExtGraph
 
@@ -278,7 +278,7 @@ class DA(DialogAppend):
             if v[1][0] == '' or v[1][1] == '':
                 sth_wrong = True
         if sth_wrong:
-            wx.MessageBox('Empty value is NOT allow.')
+            wx.MessageBox('Empty value is NOT allow.', 'Error')
             return
         else:
             self.EndModal(wx.ID_OK)
@@ -311,7 +311,8 @@ class MF(MainFrame):
     is_data_changed = False
     file_path = None
     help_window = None
-    bitmap_zoom_ratio = 0.4
+    bitmap_zoom_ratio = 1.0
+    MAX_ZOOM = 1.2
     __zoom_cache = (bitmap_zoom_ratio, None, None)
     is_dragging = False
     
@@ -533,14 +534,13 @@ class MF(MainFrame):
         if zoom_ratio == self.bitmap_zoom_ratio:
             return True
         
-        if zoom_ratio > 2.0: zoom_ratio = 2.0
-        
         min_zoom = self.__calc_best_zoom_ratio()
-        if zoom_ratio < min_zoom:
-            return False
-        else:
-            self.bitmap_zoom_ratio = zoom_ratio
-            self.m_staticText_zoom.SetLabel('Zoom:%3d%%'%(zoom_ratio*100.0))
+        
+        if zoom_ratio > self.MAX_ZOOM : zoom_ratio = self.MAX_ZOOM
+        if zoom_ratio < min_zoom: zoom_ratio = min_zoom
+        
+        self.bitmap_zoom_ratio = zoom_ratio
+        self.m_staticText_zoom.SetLabel('Zoom:%3d%%'%(zoom_ratio*100.0))
         
         img = self.data_graph.get_bitmap()
         self.m_panel_paint.SetVirtualSize((img.GetWidth()*self.bitmap_zoom_ratio, \
@@ -549,7 +549,7 @@ class MF(MainFrame):
         self.m_panel_paint.SetScrollRate(20,20)
         self.m_panel_paint.Refresh()
         
-        return True
+        return 
               
     def onZoom100(self, event):
         '''Reset the zoom ratio to 100%.'''
@@ -587,13 +587,19 @@ class MF(MainFrame):
             p = self.m_panel_paint.GetScrollPixelsPerUnit()
 
             diff = [0.0, 0.0]
-            diff[0] = (self.LastClickPos[0] - self.CurrentCursorPos[0]) / p[0]
-            diff[1] = (self.LastClickPos[1] - self.CurrentCursorPos[1]) / p[1]
+            delta_x = self.CurrentCursorPos[0] - self.LastClickPos[0]
+            delta_y = self.CurrentCursorPos[1] - self.LastClickPos[1]
+            
+            # Why sign*abs/p? Cause the '/' operator is different to positive and nagative num.
+            sign = lambda x:math.copysign(1, x)
+            
+            diff[0] = sign(delta_x)*(abs(delta_x) / p[0])
+            diff[1] = sign(delta_y)*(abs(delta_y) / p[1])
 
             start_pos = self.m_panel_paint.GetViewStart()
             
-            x = diff[0]+start_pos[0]
-            y = diff[1]+start_pos[1]
+            x = start_pos[0] - diff[0]
+            y = start_pos[1] - diff[1]
 
             self.m_panel_paint.Scroll(x, y)
 
@@ -616,7 +622,6 @@ class MF(MainFrame):
         '''End the drag motion.'''
         
         self.is_dragging = False
-        self.CurrentCursorPos = event.GetPosition()
 
         cursor = wx.StockCursor(wx.CURSOR_DEFAULT)
         self.SetCursor(cursor)
@@ -677,8 +682,9 @@ class MF(MainFrame):
         # Find root in m_tree to append.
         i_id = self.m_tree.GetSelection()
         if not i_id.IsOk():
-            wx.MessageBox("Please select a item as the append location.", 
-                              style=wx.OK|wx.ICON_EXCLAMATION)
+            wx.MessageBox("Please select a item as the append location.",
+                          'Don\'t know where to append', 
+                          style=wx.OK|wx.ICON_EXCLAMATION)
             return
         
         _, i_type, i_graph = self.GetSelectedItem()
@@ -699,7 +705,8 @@ class MF(MainFrame):
                 try:
                     a_data = self.data_graph.EG_append_node(v[1], root_graph=root_graph)
                 except:
-                    wx.MessageBox('Can\'t add item "%s", maybe the same-named item was existed.'%(v[1].decode('utf8')))
+                    wx.MessageBox('Can\'t add item "%s", maybe the same-named item was existed.'%(v[1].decode('utf8')), 
+                                  'Found duplicated node name')
                     return
                 
                 ### Add item to tree.
@@ -711,19 +718,21 @@ class MF(MainFrame):
                 try:
                     a_data = self.data_graph.EG_append_edge((n,n1), root_graph=root_graph)
                 except:
-                    wx.MessageBox('Can\'t add edge "%s -> %s", maybe the edge was existed.'%(n.decode('utf8'),n1.decode('utf8')))
+                    wx.MessageBox('Can\'t add edge "%s -> %s", maybe the edge was existed.'%(n.decode('utf8'),n1.decode('utf8')), 
+                                  'Found duplicated edge name')
                     return
                 ### Add item to tree.
                 a_id = self.m_tree.AppendItem(root_id, n.decode('utf8')+' -> '+n1.decode('utf8'))
                 self.m_tree.SetItemPyData(a_id, ('edge', a_data))
                 self.m_tree.SetItemImage(a_id, self.img_dict[('edge', 'color')])
             else: ### Add subgraph.
-                if 1:
-                #try:
+
+                try:
                     a_data = self.data_graph.EG_append_subgraph(v[1], root_graph=root_graph)
-                #except:
-                #    wx.MessageBox('Can\'t add item "%s", maybe the same-named subgraph was existed.'%(v[1].decode('utf8')))
-                #    return
+                except:
+                    wx.MessageBox('Can\'t add item "%s", maybe the same-named subgraph was existed.'%(v[1].decode('utf8')), 
+                                  'Found duplicated subgraph name')
+                    return
                 ### Add subgraph root to tree.
                 a_id = self.m_tree.AppendItem(root_id, v[1].decode('utf8'))
                 self.m_tree.SetItemPyData(a_id, ('graph', a_data))
@@ -967,7 +976,7 @@ class MF(MainFrame):
                                    )
             if md.ShowModal() != wx.ID_YES:
                 return
-            
+        
         fd = wx.FileDialog(self, "Open Dot File", "", "", 
                            "Graphviz Dot Script (*.*)|*.*", 
                            wx.OPEN|wx.FD_FILE_MUST_EXIST)
@@ -987,8 +996,10 @@ class MF(MainFrame):
             self.update_graph(g)
 
         except ExtParser.ParseException, _:
-            pass
-        
+            wx.MessageBox('Can\'t load specified file. Maybe file format error. \n'+\
+                          'Be sure the file is in graphviz dot language, or check \n'+\
+                          'if some syntax error existed in specified file. ',
+                          "Can't load file", wx.ICON_ERROR)
         return
         
     
@@ -1136,8 +1147,8 @@ def __check_graphviz():
 
 if __name__ == "__main__":
     
-    #app = wx.App(redirect=True, filename="./log.txt")
-    app = wx.App()
+    app = wx.App(redirect=True, filename="./log.txt")
+    #app = wx.App()
     
     if not __check_graphviz():
         wx.MessageBox('Please confirm graphviz installed correct in the computer, '+\

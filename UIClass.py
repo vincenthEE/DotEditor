@@ -574,7 +574,7 @@ class DialogScript ( wx.Dialog ):
 		fgSizer29.SetFlexibleDirection( wx.BOTH )
 		fgSizer29.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
-		self.m_text_script = wx.TextCtrl( self.m_panel30, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_PROCESS_ENTER|wx.TE_PROCESS_TAB|wx.TE_RICH|wx.NO_BORDER )
+		self.m_text_script = wx.TextCtrl( self.m_panel30, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_DONTWRAP|wx.TE_MULTILINE|wx.TE_PROCESS_ENTER|wx.TE_PROCESS_TAB|wx.TE_RICH|wx.NO_BORDER )
 		fgSizer29.Add( self.m_text_script, 0, wx.ALL|wx.EXPAND, 0 )
 		
 		
@@ -589,19 +589,37 @@ class DialogScript ( wx.Dialog ):
 		self.m_panel22 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_panel22.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
 		
-		gSizer3 = wx.GridSizer( 0, 2, 0, 0 )
+		fgSizer36 = wx.FlexGridSizer( 1, 4, 0, 0 )
+		fgSizer36.AddGrowableCol( 2 )
+		fgSizer36.AddGrowableRow( 0 )
+		fgSizer36.SetFlexibleDirection( wx.BOTH )
+		fgSizer36.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+		
+		self.m_button20 = wx.Button( self.m_panel22, wx.ID_ANY, u"Chec&k", wx.DefaultPosition, wx.DefaultSize, wx.BU_EXACTFIT )
+		self.m_button20.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 92, False, wx.EmptyString ) )
+		self.m_button20.SetForegroundColour( wx.Colour( 51, 160, 44 ) )
+		
+		fgSizer36.Add( self.m_button20, 0, wx.ALL, 5 )
+		
+		self.m_panel33 = wx.Panel( self.m_panel22, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.SIMPLE_BORDER )
+		fgSizer36.Add( self.m_panel33, 1, wx.ALL|wx.EXPAND, 5 )
+		
+		gSizer13 = wx.GridSizer( 0, 2, 0, 0 )
 		
 		self.m_button5 = wx.Button( self.m_panel22, wx.ID_OK, u"&Parse && Update", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_button5.SetDefault() 
-		gSizer3.Add( self.m_button5, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		gSizer13.Add( self.m_button5, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
 		self.m_button6 = wx.Button( self.m_panel22, wx.ID_CANCEL, u"&Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
-		gSizer3.Add( self.m_button6, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		gSizer13.Add( self.m_button6, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
 		
-		self.m_panel22.SetSizer( gSizer3 )
+		fgSizer36.Add( gSizer13, 1, wx.EXPAND, 5 )
+		
+		
+		self.m_panel22.SetSizer( fgSizer36 )
 		self.m_panel22.Layout()
-		gSizer3.Fit( self.m_panel22 )
+		fgSizer36.Fit( self.m_panel22 )
 		fgSizer3.Add( self.m_panel22, 1, wx.EXPAND |wx.ALL, 0 )
 		
 		
@@ -613,6 +631,7 @@ class DialogScript ( wx.Dialog ):
 		# Connect Events
 		self.m_text_script.Bind( wx.EVT_TEXT, self.onText )
 		self.m_text_script.Bind( wx.EVT_TEXT_ENTER, self.onTextEnter )
+		self.m_button20.Bind( wx.EVT_BUTTON, self.onCheck )
 		self.m_button5.Bind( wx.EVT_BUTTON, self.onOK )
 	
 	def __del__( self ):
@@ -624,6 +643,9 @@ class DialogScript ( wx.Dialog ):
 		event.Skip()
 	
 	def onTextEnter( self, event ):
+		event.Skip()
+	
+	def onCheck( self, event ):
 		event.Skip()
 	
 	def onOK( self, event ):
@@ -1144,6 +1166,51 @@ class DialogHelp ( wx.Dialog ):
 		
 		
 		self.SetSizer( fgSizer29 )
+		self.Layout()
+		
+		self.Centre( wx.BOTH )
+	
+	def __del__( self ):
+		pass
+	
+
+###########################################################################
+## Class DialogTextEditor
+###########################################################################
+
+class DialogTextEditor ( wx.Dialog ):
+	
+	def __init__( self, parent ):
+		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 347,309 ), style = wx.DEFAULT_DIALOG_STYLE )
+		
+		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+		
+		fgSizer24 = wx.FlexGridSizer( 2, 1, 0, 0 )
+		fgSizer24.AddGrowableCol( 0 )
+		fgSizer24.AddGrowableRow( 0 )
+		fgSizer24.SetFlexibleDirection( wx.BOTH )
+		fgSizer24.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+		
+		self.m_text = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_WORDWRAP )
+		fgSizer24.Add( self.m_text, 0, wx.ALL|wx.EXPAND, 5 )
+		
+		self.m_panel29 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		gSizer7 = wx.GridSizer( 0, 2, 0, 0 )
+		
+		self.m_button15 = wx.Button( self.m_panel29, wx.ID_OK, u"&OK", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gSizer7.Add( self.m_button15, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		
+		self.m_button16 = wx.Button( self.m_panel29, wx.ID_CANCEL, u"&Cancel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		gSizer7.Add( self.m_button16, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		
+		
+		self.m_panel29.SetSizer( gSizer7 )
+		self.m_panel29.Layout()
+		gSizer7.Fit( self.m_panel29 )
+		fgSizer24.Add( self.m_panel29, 1, wx.EXPAND |wx.ALL, 5 )
+		
+		
+		self.SetSizer( fgSizer24 )
 		self.Layout()
 		
 		self.Centre( wx.BOTH )

@@ -49,7 +49,7 @@ def parse_dot(script):
         tok = lexer.token()
         if not tok:
             break
-        r = tok.type, tok.lexpos, tok.lexpos+len(tok.value)
+        r = tok.lexpos, tok.lexpos+len(tok.value), tok.type
         result.append(r)
         
     return result
@@ -62,6 +62,9 @@ def _is_same_color(textAtt1, textAtt2):
     
 class DS(DialogScript):
     '''Dialog to edit dot script.'''
+    
+    font_dict = {'PLAIN':wx.TextAttr('#000000')}
+     
     def __init__(self, parent):
         DialogScript.__init__(self, parent)
         
@@ -77,18 +80,14 @@ class DS(DialogScript):
                   wx.Colour(255, 127, 0), \
                   ]
         
-        self.font_dict = {
-            'PLAIN':            wx.TextAttr('#000000'),
+        self.font_dict.update( {
             'QUOTED_STRING':    wx.TextAttr(colors[0]),
             'COMMENT':          wx.TextAttr(colors[1]), 
             'STRICT':           wx.TextAttr(colors[3]), 
             'KEYWORD':          wx.TextAttr(colors[3]),
             'EDGE_LINK':        wx.TextAttr(colors[3]),
             'PAREN':            wx.TextAttr(colors[2]),                
-        }
-        
-        #self.m_text_script.Bind(wx.EVT_KEY_DOWN, self.onTab)
-        self.Bind(wx.EVT_CHILD_FOCUS, self.onTextEnter)
+        } )
         
 
     def onTab(self, event):
@@ -106,12 +105,23 @@ class DS(DialogScript):
         script = self.m_text_script.GetValue()
         
         ttable = parse_dot(script)
-
-        for t in ttable:
-            if l_begin <= t[1] <= l_end or l_begin <= t[2] <= l_end: 
-                self.m_text_script.SetStyle(t[1], t[2], self.font_dict[t[0]])
-                if t[2] < l_end:
-                    self.m_text_script.SetStyle(t[2], l_end, self.font_dict['PLAIN'])
+        
+        ### Insert 'PLAIN' token into ttable ;)
+        ttable.sort()
+        new_table = []
+        for x in range(len(ttable)):
+            t = ttable[x]
+            if x > 0:
+                t_pre = ttable[x-1]
+                if t[0] > t_pre[1]+1: # Find a gap.
+                    new_table.append((t_pre[1]+1, t[0], 'PLAIN'))
+            new_table.append(t)
+        
+        for t in new_table:
+            if l_begin <= t[0] <= l_end or l_begin <= t[1] <= l_end: 
+                self.m_text_script.SetStyle(t[0], t[1], self.font_dict[t[2]])
+                if t[1] < l_end:
+                    self.m_text_script.SetStyle(t[1], l_end, self.font_dict['PLAIN'])
         return
     
     def light_script_all(self):
@@ -120,7 +130,7 @@ class DS(DialogScript):
         ttable = parse_dot(script)
 
         for t in ttable:
-            self.m_text_script.SetStyle(t[1], t[2], self.font_dict[t[0]])
+            self.m_text_script.SetStyle(t[0], t[1], self.font_dict[t[2]])
     
     # A lock var to disable onText function when SetScript working.
     highlight_lock = False
@@ -144,14 +154,34 @@ class DS(DialogScript):
         
         return
     
-    def onTextEnter(self, event):
+    def onCheck(self, event):
+        '''Do check on script, format script if correct.'''
+        script = self.m_text_script.GetValue().strip()
+        ### Get strict status here.
+        strict_status = False
+        if script[:6].lower() == 'strict':
+            strict_status = True
+            
+        try:
+            g = ExtParser.parse_string(script.encode('utf8'))
+            ### Hack the strcit status cause bug of pydot.
+            g.set_strict(strict_status)
+            g = ExtGraph.ExtGraph(obj_dict=g.obj_dict)
 
-        pos = self.m_text_script.GetInsertionPoint()
-        _, line = self.m_text_script.PositionToXY(pos)
-
-        if line -1 > 0:
-            self.light_script_line(line-1)
-
+        except ExtParser.ParseException, err:
+            
+            pos = self.m_text_script.XYToPosition(0, err.lineno-1)
+            w = self.m_text_script.GetLineLength(err.lineno-1)
+            
+            self.m_text_script.SetFocus()
+            self.m_text_script.SetSelection(pos, pos+w)
+            
+            wx.MessageBox("Parse Script Error.\n"+20*"-"+"\n%s"%err, 'Parse script error')
+            
+            return
+        
+        self.SetScript(g.EG_to_string().decode('utf8'))
+        
         return
     
     def onOK(self, event):
@@ -181,7 +211,7 @@ class DS(DialogScript):
             self.m_text_script.SetFocus()
             self.m_text_script.SetSelection(pos, pos+w)
             
-            wx.MessageBox("Parse Script Error.\n"+20*"-"+"\n%s"%err)
+            wx.MessageBox("Parse Script Error.\n"+20*"-"+"\n%s"%err, 'Parse script error')
         
         return
     
