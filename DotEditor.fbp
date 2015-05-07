@@ -9615,7 +9615,7 @@
             <property name="minimum_size"></property>
             <property name="name">DialogHelp</property>
             <property name="pos"></property>
-            <property name="size">612,536</property>
+            <property name="size">773,693</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title"></property>
@@ -9773,7 +9773,7 @@
             <property name="minimum_size"></property>
             <property name="name">DialogTextEditor</property>
             <property name="pos"></property>
-            <property name="size">347,309</property>
+            <property name="size">408,324</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass"></property>
             <property name="title"></property>

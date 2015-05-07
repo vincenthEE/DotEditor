@@ -332,7 +332,13 @@ class MF(MainFrame):
     
         # Build help popmenu.
         self.m_menu_help = wx.Menu()
-        help_list = ['Tips', 'Hotkey']
+        
+        help_list = []
+        help_files = os.listdir(resource_path('resource/help/'))
+        for hf in help_files:
+            if hf[0].isdigit() and hf[-3:].lower() == 'dot':
+                help_list.append(hf[:-4])
+        
         for item in help_list:
             m_id = wx.NewId()
             self.m_menu_help.Append(m_id, item)
@@ -1147,8 +1153,8 @@ def __check_graphviz():
 
 if __name__ == "__main__":
     
-    app = wx.App(redirect=True, filename="./log.txt")
-    #app = wx.App()
+    #app = wx.App(redirect=True, filename="./log.txt")
+    app = wx.App()
     
     if not __check_graphviz():
         wx.MessageBox('Please confirm graphviz installed correct in the computer, '+\

@@ -1,0 +1,56 @@
+digraph G {
+rankdir="LR";
+splines="true";
+rank="min";
+penwidth="0.1";
+edge [comment="subgraph edge wildcard", color="1", arrowhead="onormal", colorscheme="accent4"];
+node [comment="subgraph node wildcard", style="filled", colorscheme="accent4", color="1", fontname="sans", shape="note", fontsize="13", fillcolor="3", fontcolor="#303030"];
+"about_de" [label="DotEditor is a small IDE for graphviz.\l
+With DE, you can:\l
+-- Edit graph in natural UI tree view.\l
+-- Edit almost all graph/node/edge attributes by mouse\l clicking.\l
+-- Selecting 'colorscheme', 'color', 'node-shape', \l
+'arrow-type' by preview.\l
+-- View the result image immediately when finished \l
+editing script.\l", fillcolor="4", colorscheme="accent4"];
+"edit_model" [label="DE is working in two model: GUI and Script.\l"];
+"gui_model" [label="When you open the DotEditor main window, you have already\l
+gone into the GUI model. Now you can add/del nodes, \l
+edges and subgraphs, change the attributes of them, \l
+change the layout principle(By change the attributes \l
+of graph and subgraph).\l
+
+After finishing you work, clicking the 'save' or 'export'\l
+button, then the graph should be stored, the output image\l
+should be used by other programs, such as 'latex', 'office'\l or a html editor.\l"];
+"script_model" [label="For skilled user, the more interesting part is the script \l
+editing model.\l
+
+In the main window, click the 'script' button anytime, a \l
+window named 'dot editor' should appeared.\l
+
+In the editor, normally a script described the graph in \l
+GUI model is already stayed there. You can changed the \l
+script to change the graph structure, attributes,\l
+items and everything the dot language allowed.\l
+
+After editing you script, click the 'Parse and update' \l
+button, if anything ok, the result of the script should \l
+be shown in the preview window, and the tree structure\l
+(left upper corner) of the graph should updated.\l
+
+If something error, the editor may tell you where is the\l
+error happend, but, as you know, compiler is not always \l
+smart. So, using your eyes and heart to find the error \l
+maybe is a better way.\l
+
+Ofcourse you can delete all lines in editor, replace with\l
+your own script immediately. This action is samely as \l
+clicking 'open' button in main window. But this \l
+brings additional benefit is: the script you pasted in \l
+the editor could include errors. You can use the editor \l
+to corrected error. When clicking the 'open' button, such\l
+dirty script should never be allowed.\l"];
+"edit_model" -> "gui_model";
+"edit_model" -> "script_model";
+}
