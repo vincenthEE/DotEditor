@@ -12,6 +12,7 @@ import csv
 import ExtParser
 import wx
 import os, sys
+import ply.lex as lex
 
 def resource_path(relative_path):
     """ Get absolute path to resource, works for "--onefile" in PyInstaller. """
@@ -51,6 +52,72 @@ def add_double_quote(s):
         
     return s
 
+def __pos2xy(block_str, pos):
+    
+    lines = block_str.split('\n')
+    
+    if pos > len(block_str):
+        return len(lines)-1, len(lines[-1])
+    
+    l_begin = 0
+    for _y in range(len(lines)):
+        l = lines[_y] 
+        if l_begin <= pos <= l_begin+len(l): # Find the line.
+            x = pos - l_begin; y = _y
+            break
+        l_begin += len(l) +1 # 1 means a '\n'.
+     
+    return x, y
+
+def smart_indent(block_str, indent_str):
+    '''Smart add indent_str to the beginning of each line of string.'''
+    if len(block_str) == 0:
+        return ''
+    
+    # Build a lexer.
+    tokens = ('QUOTED_STRING',)
+    t_QUOTED_STRING =  r'(\"(\\"|[^"])*?\")'
+    def t_error(t):
+        t.lexer.skip(1)
+    
+    lexer = lex.lex()
+
+    # Mark quoted block.
+    lexer.input(block_str)
+    
+    comment_blocks = []
+    while True:
+        tok = lexer.token()
+        if not tok:
+            break
+        r = tok.lexpos, tok.lexpos+len(tok.value)
+        comment_blocks.append(r)
+    
+    # Find lines need to skip.
+    skip_lines = []
+    for cm in comment_blocks:
+        _, y0 = __pos2xy(block_str, cm[0])
+        _, y1 = __pos2xy(block_str, cm[1])
+        if y1 > y0: # Cross lines comment found.
+            skip_lines += [y0+1+i for i in range(y1-y0)]
+    
+    # Add indent now.
+    lines = block_str.split('\n')
+    result = []
+    for x in range(len(lines)):
+        l = lines[x]
+        if x not in skip_lines:
+            result.append(indent_str + l)
+        else:
+            result.append(l)
+    
+    result = '\n'.join(result)
+
+    if block_str[-1] == '\n':
+        result += '\n'
+        
+    return result
+    
 def to_unicode(s):
     "Try convert 's' into unicode anyway."
     s = s.strip()
@@ -176,7 +243,17 @@ def normalize_imglist(image_list):
     return il
 
 if __name__ == '__main__':
-    pass
+    s = r'''
+AAAA
+ABCD "
+ABCD
+ABCD"
+"ABCD\""
+"ABCD"
+"ABC"
+    '''
+    print len(smart_indent(s, ' '*4))
+    
         
     #print gen_CB_palette_img('PuBu')
     

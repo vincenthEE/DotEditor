@@ -677,7 +677,7 @@ class DialogAbout ( wx.Dialog ):
 		fgSizer27.SetFlexibleDirection( wx.BOTH )
 		fgSizer27.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
-		self.m_bitmap1 = wx.StaticBitmap( self.m_panel28, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 64,64 ), 0 )
+		self.m_bitmap1 = wx.StaticBitmap( self.m_panel28, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 128,128 ), 0 )
 		fgSizer27.Add( self.m_bitmap1, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
 		self.m_staticText4 = wx.StaticText( self.m_panel28, wx.ID_ANY, u"Copyright by Vincent.H 2015", wx.DefaultPosition, wx.DefaultSize, 0 )

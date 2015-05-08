@@ -4,6 +4,6 @@ REM
 REM  Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html).
 REM
 
-pyinstaller pyinstaller.spec
+pyinstaller pyinstaller_win.spec
 
 pause

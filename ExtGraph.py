@@ -359,14 +359,15 @@ class ExtGraph(pydot.Dot):
                         node.get_name() not in edge_dst_set):
                         continue
                     
-                graph.append( idt+node.to_string()+'\n' )
+                graph.append( DEUtils.smart_indent(node.to_string(), idt) + '\n' )
 
             elif obj['type'] == 'edge':
                 edge = pydot.Edge(obj_dict=obj)
                 if root_graph.obj_dict.get('simplify', False) and edge in edges_done:
                     continue
                 
-                graph.append( idt+edge.to_string() + '\n' )
+                graph.append( DEUtils.smart_indent(edge.to_string(), idt) + '\n' )
+                
                 edges_done.add(edge)
                 
             else:

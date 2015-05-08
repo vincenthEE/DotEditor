@@ -8,7 +8,7 @@ Published under Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.h
 This module realized a simple dot language editor.
 '''
 
-import wx
+import wx, os
 from UIClass import DialogScript
 import ExtParser
 import ExtGraph
@@ -25,7 +25,7 @@ def get_lexer():
               'PAREN',
               )
 
-    t_QUOTED_STRING =  r'(\"(.|\n)*?\")'
+    t_QUOTED_STRING =  r'(\"(\\"|[^"])*?\")'
     t_COMMENT = r'(/\*(.|\n)*?\*/)|(//.*)'
     t_KEYWORD = r'(?i)strict|digraph|graph|node|edge|subgraph'
     t_PAREN = r'\[|\]|\{|\}'
@@ -68,12 +68,6 @@ class DS(DialogScript):
     def __init__(self, parent):
         DialogScript.__init__(self, parent)
         
-        self.m_text_script.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, 
-                                           wx.FONTSTYLE_NORMAL, 
-                                           wx.FONTWEIGHT_NORMAL, 
-                                           faceName='Consolas')
-                                   )
-        
         colors = [wx.Colour(31, 120, 180), \
                   wx.Colour(51, 160, 44), \
                   wx.Colour(227, 26, 28), \
@@ -88,19 +82,44 @@ class DS(DialogScript):
             'EDGE_LINK':        wx.TextAttr(colors[3]),
             'PAREN':            wx.TextAttr(colors[2]),                
         } )
+
+        ft = wx.Font(11, wx.FONTFAMILY_DEFAULT, 
+                     wx.FONTSTYLE_NORMAL, 
+                     wx.FONTWEIGHT_NORMAL, 
+                     faceName='Monospace')
+        ### Try find best programming-font.
+        try:
+            if os.sys.platform == 'win32':
+                ft = wx.Font(11, wx.FONTFAMILY_DEFAULT, 
+                             wx.FONTSTYLE_NORMAL, 
+                             wx.FONTWEIGHT_NORMAL, 
+                             faceName='Consolas')
+            elif os.sys.platform == 'darwin':
+                ft = wx.Font(11, wx.FONTFAMILY_DEFAULT, 
+                             wx.FONTSTYLE_NORMAL, 
+                             wx.FONTWEIGHT_NORMAL, 
+                             faceName='Monaco')
+        except:
+            pass
+        
+        self.m_text_script.SetDefaultStyle(wx.TextAttr(font=ft))
+        self.m_text_script.SetFont(ft)
+        
+        self.m_text_script.Bind(wx.EVT_KEY_DOWN, self.onTab)
         
 
     def onTab(self, event):
         keycode = event.GetKeyCode()
         if keycode == wx.WXK_TAB:
-            event.EventObject.Navigate()
-        event.Skip()
+            self.m_text_script.WriteText(' '*4)
+            #event.EventObject.Navigate()
+        else:
+            event.Skip()
     
-    def light_script_line(self, line):
+    def light_script_block(self, pos_begin, length):
         '''Syntax highlight the specified line.'''
-        l_begin = self.m_text_script.XYToPosition(0, line)
-        l_len = len(self.m_text_script.GetLineText(line))
-        l_end = self.m_text_script.XYToPosition(l_len, line)
+        l_begin = pos_begin
+        l_end = pos_begin + length
 
         script = self.m_text_script.GetValue()
         
@@ -148,9 +167,9 @@ class DS(DialogScript):
             return
         
         pos = self.m_text_script.GetInsertionPoint()
-        _, line = self.m_text_script.PositionToXY(pos)
+        x, _ = self.m_text_script.PositionToXY(pos)
         
-        self.light_script_line(line)
+        self.light_script_block(pos-x, x)
         
         return
     
