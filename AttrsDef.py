@@ -170,6 +170,7 @@ E_RANKDIR = ['TB', 'LR']
 E_RATIO = ['fill', 'compress', 'expand', 'auto']
 E_SPLINES= ['none', 'line', 'true', 'false', 'polyline','curved','ortho', 'compound']
 E_GRAPH_STYLE = ['solid', 'dashed', 'dotted', 'bold', 'rounded', 'filled', 'striped', 'invis']
+E_LAYOUT = ['circo', 'dot', 'fdp', 'sftp', 'neato', 'twopi']
 
 GRAPH_ATTRS_DEFINE = [
 ### name,           default_value,  category,   group,      type,           param,          description
@@ -195,6 +196,7 @@ GRAPH_ATTRS_DEFINE = [
     ['landscape',   False,          'extra',    None,       'bool',         None,           'if true, means orientation=landscape'                  ],
     ['layers',      None,           'advance',  None,       'string',       None,           'id:id:id...'                                           ],
     ['layersep',    ':',            'advance',  None,       'string',       None,           'specifies separator character to split layers'         ],
+    ['layout',      'dot',          'advance',  None,       'enum',         E_LAYOUT,       'Specifies the name of the layout algorithm to use, such as "dot" or "neato".'],
     ['margin',      0.5,            'extra',    None,       'float',        None,           'margin included in page, inches'                       ],
     ['mindist',     1.0,            'extra',    None,       'float',        None,           'minimum separation between all nodes (not dot)'        ],
     ['nodesep',     0.25,           'extra',    None,       'float',        None,           'separation between nodes, in inches.'                  ],

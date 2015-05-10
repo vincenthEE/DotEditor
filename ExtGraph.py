@@ -19,7 +19,7 @@ import tempfile
 import DEUtils
 
 
-TEMP_IMG_FILE = tempfile.gettempdir()+'/.tempimg'
+TEMP_IMG_FILE = tempfile.gettempdir()+'/de_tempimg'
 
 TEMPLATE_DOT = DEUtils.resource_path('GraphTemplate.dot')
 INIT_SCRIPT = '''

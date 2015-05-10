@@ -1126,7 +1126,7 @@ class MF(MainFrame):
         
     def onAbout(self, event):
         ad = DialogAbout(self)
-        ad.m_bitmap1.SetBitmap(wx.Bitmap(resource_path("resource\icon\DE.png")))
+        ad.m_bitmap1.SetBitmap(wx.Bitmap(resource_path("resource/icon/DE.png")))
         ad.m_bitmap1.Layout()
         ad.ShowModal()
         

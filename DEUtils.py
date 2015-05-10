@@ -144,7 +144,7 @@ digraph G {
     '''
 
     g = ExtParser.parse_string(script)    
-    e1 = g.get_edge('"n1"', '"n2"')
+    e1 = g.get_edge('"n1"', '"n2"')[0]
     e1.get_attributes()['arrowhead'] = add_double_quote('%s'%arrowtype)
     g.write(out_filepath, 'dot', 'png')
         

@@ -1,5 +1,10 @@
 Step to publish.
 
+-- Big string dialog allow '\"'
+-- Insert dialog add label edit.
+-- colorscheme, arrowtype, etc in different platform need control window size to show more.
+-- layout attr of graph.
+-- May be graph/subgraph/cluster attrs should be different.
 ++ style attr should be tuple! 
 ++ enum_image pg, include "color_scheme", "node_shape"
 ++ color pg.

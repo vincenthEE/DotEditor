@@ -45,7 +45,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.AddSpacer( ( 8, 30), 1, wx.EXPAND, 5 )
 		
-		self.m_bpButton_new = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_new = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 50,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_new.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_new.SetBitmapHover( wx.NullBitmap )
@@ -54,7 +54,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_new, 0, wx.ALIGN_CENTER|wx.ALL|wx.EXPAND, 5 )
 		
-		self.m_bpButton_open = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_open = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 50,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_open.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_open.SetBitmapHover( wx.NullBitmap )
@@ -63,7 +63,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_open, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.m_bpButton_save = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_save = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 50,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_save.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_save.SetBitmapHover( wx.NullBitmap )
@@ -72,7 +72,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_save, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.m_bpButton_script = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_script = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 50,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_script.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_script.SetBitmapHover( wx.NullBitmap )
@@ -81,7 +81,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.Add( self.m_bpButton_script, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.m_bpButton_export = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 46,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_export = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 50,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		
 		self.m_bpButton_export.SetBitmapFocus( wx.NullBitmap )
 		self.m_bpButton_export.SetBitmapHover( wx.NullBitmap )
@@ -98,7 +98,7 @@ class MainFrame ( wx.Frame ):
 		
 		fgSizer15.AddSpacer( ( 0, 0), 1, wx.EXPAND, 5 )
 		
-		self.m_bpButton_help = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 48,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
+		self.m_bpButton_help = wx.BitmapButton( self.m_panel16, wx.ID_ANY, wx.NullBitmap, wx.DefaultPosition, wx.Size( 50,-1 ), wx.BU_AUTODRAW|wx.NO_BORDER )
 		self.m_bpButton_help.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
 		
 		fgSizer15.Add( self.m_bpButton_help, 0, wx.ALL, 5 )
@@ -269,8 +269,8 @@ class MainFrame ( wx.Frame ):
 		
 		self.m_button16 = wx.Button( self.m_panel12, wx.ID_ANY, u"1:1", wx.DefaultPosition, wx.DefaultSize, wx.BU_EXACTFIT|wx.NO_BORDER )
 		self.m_button16.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 92, False, wx.EmptyString ) )
-		self.m_button16.SetForegroundColour( wx.Colour( 255, 255, 255 ) )
-		self.m_button16.SetBackgroundColour( wx.Colour( 21, 120, 180 ) )
+		self.m_button16.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOWTEXT ) )
+		self.m_button16.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
 		
 		fgSizer11.Add( self.m_button16, 0, wx.ALIGN_CENTER|wx.FIXED_MINSIZE, 5 )
 		
