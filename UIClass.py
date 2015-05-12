@@ -474,7 +474,7 @@ class DialogAppend ( wx.Dialog ):
 		fgSizer2.Add( self.m_staticText16, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_RIGHT|wx.ALL, 5 )
 		
 		self.m_textCtrl_label = wx.TextCtrl( self.m_panel_node, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.HSCROLL|wx.TE_MULTILINE|wx.TE_WORDWRAP )
-		self.m_textCtrl_label.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_INFOBK ) )
+		self.m_textCtrl_label.SetBackgroundColour( wx.Colour( 255, 255, 192 ) )
 		self.m_textCtrl_label.SetToolTipString( u"Label of node/edge/subgraph.\nJust leave empty if no label to set." )
 		
 		fgSizer2.Add( self.m_textCtrl_label, 0, wx.ALL|wx.EXPAND, 5 )

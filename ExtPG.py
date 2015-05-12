@@ -67,6 +67,8 @@ class CSDialog(ColorSchemeDialog):
             self.SetSizeWH(int(w*4.5), h*4)
         elif os.sys.platform == 'darwin':
             self.SetSizeWH(int(w*4.5), h*5)
+        elif os.sys.platform[:5] == 'linux':
+            self.SetSizeWH(int(w*5), h*5.5)
         else:
             self.SetSizeWH(int(w*5), h*5)
             
@@ -219,6 +221,8 @@ class NodeShapeDialog(ImageSingleChoiceDialog):
             self.SetSizeWH(int(w*6), h*6)
         elif os.sys.platform == 'darwin':
             self.SetSizeWH(int(w*6), h*5)
+        elif os.sys.platform[:5] == 'linux':
+            self.SetSizeWH(int(w*4.5), h*4)
         else:
             self.SetSizeWH(int(w*6), h*6)
         
