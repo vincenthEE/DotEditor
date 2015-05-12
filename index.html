@@ -1,122 +1,210 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Doteditor : A GUI editor for dot language used in graphviz.">
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description"
+	content="Doteditor : A GUI editor for dot language used in graphviz.">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="stylesheets/stylesheet.css">
 
-    <title>Doteditor</title>
-  </head>
+<title>Doteditor</title>
+</head>
 
-  <body>
+<body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/vincenthEE/DotEditor">View on GitHub</a>
+	<!-- HEADER -->
+	<div id="header_wrap" class="outer">
+		<header class="inner">
+			<a id="forkme_banner" href="https://github.com/vincenthEE/DotEditor">View
+				on GitHub</a> <img src="images/DE.png" width=64px height=64px
+				align="left"
+				style="border: 0px; box-shadow: 0 0 0px; margin: 20px 20px" />
+			<h1 id="project_title">Doteditor</h1>
+			<h2 id="project_tagline">A GUI editor for dot language used in
+				graphviz.</h2>
 
-          <h1 id="project_title">Doteditor</h1>
-          <h2 id="project_tagline">A GUI editor for dot language used in graphviz.</h2>
+		</header>
+	</div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/vincenthEE/DotEditor/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/vincenthEE/DotEditor/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+	<!-- MAIN CONTENT -->
+	<div id="main_content_wrap" class="outer">
+		<section id="main_content" class="inner">
+			<h3>
+				<a id="welcome-to-doteditor" class="anchor"
+					href="#welcome-to-doteditor" aria-hidden="true"><span
+					class="octicon octicon-link"></span></a>Welcome to DotEditor
+			</h3>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a id="welcome-to-doteditor" class="anchor" href="#welcome-to-doteditor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to DotEditor</h3>
+			<p>This project try to create a easy GUI tools for graphviz. In
+				DotEditor you can simply add node, edge, subgraph and edit their
+				attributes in GUI way. For skilled graphviz user, the DotEditor
+				supply a dot script language editor to write, check and compile to
+				preview.</p>
+
+			<p>The features of DE include:</p>
+
+			<ul>
+				<li>View and edit graph in natural UI tree view.</li>
+				<li>Edit almost all graph/node/edge attributes by mouse
+					clicking.</li>
+				<li>Selecting "colorscheme", "color", "node-shape",
+					"arrow-type" by preview.</li>
+				<li>Inline render graph into image to preview.</li>
+				<li>Simple, easy to use without install.</li>
+			</ul>
+
+			<p>These is some screenshot of DotEditor.
+			<table>
+				<tr>
+					<td><a href="images/screenshot/main_frame.png"><img
+							src="images/screenshot/main_frame.png" width=200 /><br />Main
+							Frame</a></td>
+					<td><a href="images/screenshot/script.png"><img
+							src="images/screenshot/script.png" width=200 /><br />Script
+							Editor</a></td>
+					<td><a
+						href="images/screenshot/run_script_from_graphviz_homepage.png"><img
+							src="images/screenshot/run_script_from_graphviz_homepage.png"
+							width=200 /><br />A Script from graphviz home</a></td>
+				</tr>
+				<tr>
+					<td><a href="images/screenshot/colorscheme.png"><img
+							src="images/screenshot/colorscheme.png" width=200 /><br />Color
+							Scheme Choicer</a></td>
+					<td><a href="images/screenshot/node_shape.png"><img
+							src="images/screenshot/node_shape.png" width=200 /><br />Node
+							Shape Choicer</a></td>
+					<td><a href="images/screenshot/arrow_type.png"><img
+							src="images/screenshot/arrow_type.png" width=200 /><br />Arrow
+							Type Choicer</a></td>
+				</tr>
+			</table>
+			<p>
+				To use the DotEditor, the graphviz MUST installed on the computer.
+				You can download the binary graphviz files from graphviz' homepage:
+				<a href="http://www.graphviz.org">http://www.graphviz.org</a> . As a
+				alternative solution, to add the "graphviz/bin" into the "PATH"
+				environment parameter is also worked fine to run DotEditor.
+			</p>
+
+			<p>
+				The DotEditor is published under <strong>Apache 2.0 License</strong>
+				(<a href="http://www.apache.org/licenses/LICENSE-2.0.html">http://www.apache.org/licenses/LICENSE-2.0.html</a>).
+			</p>
+
+			<h3>
+
+				<a id="release-binary-files" class="anchor"
+					href="#release-binary-files" aria-hidden="true"><span
+					class="octicon octicon-link"></span></a>Binary Release files.
+			</h3>
+
+			<table>
+				<tr>
+					<td>Windows 64bit</td>
+					<td><a
+						href="https://github.com/vincenthEE/DotEditor/releases/download/v0.3-win64/DotEditor-0.3-win64.exe">DotEditor-0.3-win64.exe</a>
+					</td>
+
+				</tr>
+				<tr>
+					<td>Windows 32bit</td>
+					<td><a
+						href="https://github.com/vincenthEE/DotEditor/releases/download/v0.3-win32/DotEditor-0.3-win32.exe">DotEditor-0.3-win32.exe</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Mac 64bit</td>
+					<td><a
+						href="https://github.com/vincenthEE/DotEditor/releases/download/v0.3-osx64/DotEditor-0.3.dmg">DotEditor-0.3.dmg</a>
+					</td>
+				</tr>
+			</table>
+
+			<p>
+				Again, the binary file <strong>needed</strong> the graphviz
+				installed on the same machine, click <a
+					href="http://www.graphviz.org/Download..php">HERE</a> to download
+				the graphviz binary install files.
+			</p>
+
+			<h4>News</h4>
+			<ul>
+				<li>2015-05-12: Prebuild v0.3 released! Including win64, win32,
+					mac OS 64bit version.
+					<p>These is new feature in version 0.2:</p>
+					<ol>
+						<li>Improved the script auto-format in script editor.</li>
+						<li>Fix the string editor bug, now \", \\ can appear in all
+							string item.</li>
+						<li>Allow edit the label when appending items.</li>
+						<li>Add some help topic</li>
+					</ol>
+				</li>
+				<li>2015-05-09: Bug fix version for MacOSX release!</li>
+				<li>2015-05-07: New Windows prebuild binary v0.2 release!
+
+					<p>These is new feature in version 0.2:</p>
+					<ol>
+						<li>More stable in script editor, add "check" button in
+							script window, can help to check script syntax error and make
+							better format of script.</li>
+						<li>Zoom and pan in preview window.</li>
+						<li>About dialog and some help topic. More help is working in
+							progress.</li>
+					</ol>
+				</li>
+			</ul>
+
+			<p>Linux binary release plan is working in progress. Before that,
+				you can use DotEditor by download the source file if you have a
+				python running environment. The dependents is list below.</p>
+
+			<h3>
+				<a id="use-doteditor-in-source" class="anchor"
+					href="#use-doteditor-in-source" aria-hidden="true"><span
+					class="octicon octicon-link"></span></a>Use DotEditor in source.
+			</h3>
+
+			<p>To run the DotEditor.py script, these package or library(in
+				specified version) is necessary.</p>
+
+			<p>This is the dependents list.</p>
+
+			<ol>
+				<li>Graphviz &gt;= 2.68</li>
+				<li>pydot == 1.0.2</li>
+				<li>wxpython &gt;= 3.0</li>
+				<li>PLY &gt;= 3.4</li>
+			</ol>
+
+			<h3>
+				<a id="thank-for-using" class="anchor" href="#thank-for-using"
+					aria-hidden="true"><span class="octicon octicon-link"></span></a>Thank
+				for using.
+			</h3>
+
+			<p>Thank for using the DotEditor, if you find bug or want some
+				new feature, please contact me ( forever.h (AT) gmail.com :) ).</p>
+		</section>
+	</div>
+
+	<!-- FOOTER  -->
+	<div id="footer_wrap" class="outer">
+		<footer class="inner">
+			<p class="copyright">
+				Doteditor maintained by <a href="https://github.com/vincenthEE">vincenthEE</a>
+			</p>
+			<p>
+				Published with <a href="https://pages.github.com">GitHub Pages</a>
+			</p>
+		</footer>
+	</div>
 
 
 
-
-<p><div><img src="images/DE.png" width=64px height=64px/></div>This project try to create a easy GUI tools for graphviz. In DotEditor you can simply add node, edge, subgraph and edit their attributes in GUI way. For skilled graphviz user, the DotEditor supply a dot script language editor to write, check and compile to preview.</p>
-
-<p>The features of DE include:</p>
-
-<ul>
-  <li>View and edit graph in natural UI tree view.</li>
-  <li>Edit almost all graph/node/edge attributes by mouse clicking.</li>
-  <li>Selecting "colorscheme", "color", "node-shape", "arrow-type" by preview.</li>
-  <li>Inline render graph into image to preview.</li>
-  <li>Simple, easy to use without install.</li>
-</ul>
-
-<p>These is some screenshot of DotEditor.
-<table>
-	<tr>
-		<td><a href="images/screenshot/main_frame.png"><img src="images/screenshot/main_frame.png" width=200/><br/>Main Frame</a></td>
-		<td><a href="images/screenshot/script.png"><img src="images/screenshot/script.png" width=200/><br/>Script Editor</a></td>
-		<td><a href="images/screenshot/run_script_from_graphviz_homepage.png"><img src="images/screenshot/run_script_from_graphviz_homepage.png" width=200/><br/>A Script from graphviz home</a></td>
-	</tr>
-	<tr>
-		<td><a href="images/screenshot/colorscheme.png"><img src="images/screenshot/colorscheme.png" width=200/><br/>Color Scheme Choicer</a></td>
-		<td><a href="images/screenshot/node_shape.png"><img src="images/screenshot/node_shape.png" width=200/><br/>Node Shape Choicer</a></td>
-		<td><a href="images/screenshot/arrow_type.png"><img src="images/screenshot/arrow_type.png" width=200/><br/>Arrow Type Choicer</a></td>
-	</tr>
-</table>
-<p>To use the DotEditor, the graphviz MUST installed on the computer. You can download the binary graphviz files from graphviz' homepage: <a href="http://www.graphviz.org">http://www.graphviz.org</a> . As a alternative solution, to add the "graphviz/bin" into the "PATH" environment parameter is also worked fine to run DotEditor.</p>
-
-<p>The DotEditor is published under <strong>Apache 2.0 License</strong> (<a href="http://www.apache.org/licenses/LICENSE-2.0.html">http://www.apache.org/licenses/LICENSE-2.0.html</a>).</p>
-
-<h3>
-
-<a id="release-binary-files" class="anchor" href="#release-binary-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary Release files.</h3>
-
-<p>2015-05-09: Bug fix version for MacOSX release! Click <a href="https://github.com/vincenthEE/DotEditor/releases/download/v0.2r-mac/DotEditor-0.2r.dmg">DotEditor-0.2r.dmg</a> to get it! </p>
-
-<p>2015-05-07: <strong>New Windows prebuild binary release!</strong> click <a href="https://github.com/vincenthEE/DotEditor/releases/download/v0.2/DotEditor-0.2.exe">Windows 64bit EXE</a> or <a href="https://github.com/vincenthEE/DotEditor/releases/download/v0.2-win32/DotEditor-0.2-win32.exe">Windows 32bit EXE</a> to get it. </p>
-
-<p>These is new feature in version 0.2:</p>
-<ol>
-	<li>More stable in script editor, add "check" button in script window, can help to check script syntax error and make better format of script.</li>
-	<li>Zoom and pan in preview window.</li>
-	<li>About dialog and some help topic. More help is working in progress.</li>
-</ol>
-
-<hr/>
-
-<p>Again, the binary file <strong>needed</strong> the graphviz installed on the same machine, click <a href="http://www.graphviz.org/pub/graphviz/stable/windows/graphviz-2.36.msi">HERE(graphviz 2.36)</a> to download the graphviz installer for windows.</p>
-
-<p>Linux binary release plan is working in progress. Before that, you can use DotEditor by download the source file if you have a python running environment. The dependents is list below.</p>
-
-<h3>
-<a id="use-doteditor-in-source" class="anchor" href="#use-doteditor-in-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use DotEditor in source.</h3>
-
-<p>To run the DotEditor.py script, these package or library(in specified version) is necessary.</p>
-
-<p>This is the dependents list.</p>
-
-<ol>
-<li>Graphviz &gt;= 2.68</li>
-<li>pydot == 1.0.2</li>
-<li>wxpython &gt;= 3.0</li>
-<li>PLY &gt;= 3.4</li>
-</ol>
-
-<h3>
-<a id="thank-for-using" class="anchor" href="#thank-for-using" aria-hidden="true"><span class="octicon octicon-link"></span></a>Thank for using.</h3>
-
-<p>Thank for using the DotEditor, if you find bug or want some new feature, please contact me ( forever.h (AT) gmail.com :) ).</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Doteditor maintained by <a href="https://github.com/vincenthEE">vincenthEE</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</body>
 </html>
