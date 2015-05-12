@@ -1,18 +1,17 @@
 Step to publish.
 
--- Big string dialog allow '\"'
--- Insert dialog add label edit.
--- colorscheme, arrowtype, etc in different platform need control window size to show more.
--- layout attr of graph.
--- May be graph/subgraph/cluster attrs should be different.
+-- Try to enable multi instance of DE. The tempimg is a problem.
+++ Big string dialog allow '\"'
+++ Insert dialog add label edit.
+++ colorscheme, arrowtype, etc in different platform need control window size to show more.
+++ Some logic improve in add dialog.
+++ "node" and "nodesep" is different keyword in script editor.
 ++ style attr should be tuple! 
 ++ enum_image pg, include "color_scheme", "node_shape"
 ++ color pg.
 ++ arrow shape pg. Haaaa!
 ++ Backup old graph file when save it.
 -- Show helps in preview window :)
--- Drag and drop in tree.
--- Undo, redo
 ++ Add GPL declaration.
 ++ About Dialog. Maybe still use preview window.
 -- Pop alert when script changed and user cancel or close the script dialog.
@@ -34,6 +33,13 @@ limited feature.
 -- From Pydot: double quote can't be use in quoted string such as name or label.
 
 plan:
+
+-- Drag and drop in tree.
+-- Undo, redo
+-- May be graph/subgraph/cluster attrs should be different.
+-- Maybe build a distribution include graphviz binary.
+-- layout attr of graph.
+-- colorList value in color attr.
 ++ Upload to Github.
 ++ Build a small web page to publish.
 -- Add comment to script.

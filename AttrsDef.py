@@ -175,7 +175,7 @@ E_LAYOUT = ['circo', 'dot', 'fdp', 'sftp', 'neato', 'twopi']
 GRAPH_ATTRS_DEFINE = [
 ### name,           default_value,  category,   group,      type,           param,          description
     ['bgcolor',     '#ffffff00',    'basic',    'color_attrs','color',      None,           'background color for drawing, plus initial fill color' ],
-    ['center',      False,          'basic',    None,       'bool',         None,           'center drawing on page'                                ],                  
+    ['center',      False,          'extra',    None,       'bool',         None,           'center drawing on page'                                ],                  
     ['clusterrank', 'local',        'extra',    'cluster',  'enum',         E_CLUSTERRANK,  'mode used for handling clusters.'                      ],
     ['color',       'black',        'extra',    'color_attrs','color',      None,           'for clusters, outline color, and fill color if "fillcolor" not defined'],
     ['colorscheme', 'x11',          'extra',    'color_attrs','colorscheme',None,           'scheme for interpreting color names'                   ],
@@ -196,8 +196,8 @@ GRAPH_ATTRS_DEFINE = [
     ['landscape',   False,          'extra',    None,       'bool',         None,           'if true, means orientation=landscape'                  ],
     ['layers',      None,           'advance',  None,       'string',       None,           'id:id:id...'                                           ],
     ['layersep',    ':',            'advance',  None,       'string',       None,           'specifies separator character to split layers'         ],
-    ['layout',      'dot',          'advance',  None,       'enum',         E_LAYOUT,       'Specifies the name of the layout algorithm to use, such as "dot" or "neato".'],
-    ['margin',      0.5,            'extra',    None,       'float',        None,           'margin included in page, inches'                       ],
+#    ['layout',      'dot',          'advance',  None,       'enum',         E_LAYOUT,       'Specifies the name of the layout algorithm to use, such as "dot" or "neato".'],
+    ['margin',      0,              'extra',    None,       'float',        None,           'margin included in page, inches'                       ],
     ['mindist',     1.0,            'extra',    None,       'float',        None,           'minimum separation between all nodes (not dot)'        ],
     ['nodesep',     0.25,           'extra',    None,       'float',        None,           'separation between nodes, in inches.'                  ],
     ['nojustify',   False,          'extra',    None,       'bool',         None,           'if true, justify to label, not graph'                  ],

@@ -429,6 +429,15 @@ def find_graphviz():
     If this fails, it returns None.
     """
     
+    ### Add by vincent.h 2015------------------------------------------
+    ### Try to find graphviz in zipped folder.
+    from DEUtils import resource_path
+    progs = __find_executables(resource_path('graphviz/bin/'))
+    if progs != None:
+        return progs
+    ### ----------------------------------------------------------------
+    
+    
     # Method 1 (Windows only)
     #
     if os.sys.platform == 'win32':
@@ -1956,6 +1965,7 @@ class Dot(Graph):
             prog, args = prog[0], prog[1:]
         else:
             args = []
+        
             
         if self.progs is None:
             self.progs = find_graphviz()

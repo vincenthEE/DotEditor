@@ -48,15 +48,14 @@ def generate_node_shape_images():
     
     g = ExtParser.parse_file(ExtGraph.TEMPLATE_DOT)
     
-    n1 = g.get_node('"n1"')
-    n1.set_label('')
+    n1 = g.get_node('"n1"')[0]
+    n1.set_label('" "')
     n1.get_attributes()['colorscheme'] = add_double_quote('blues3')
     n1.get_attributes()['color'] = add_double_quote('3')
     n1.get_attributes()['fillcolor'] = add_double_quote('1')
     n1.get_attributes()['style'] = add_double_quote('filled')
     
     for shape in AttrsDef.E_SHAPE:
-        
         n1.get_attributes()['shape'] = add_double_quote(shape)
         g.write('resource/node_shape/%s.png'%shape, 'dot', 'png')
         
@@ -160,8 +159,9 @@ def generate_platte():
 if __name__ == '__main__':
     #generate_node_shape_images()
     #store_colorbrewer()
-    generate_platte()
-    
+    #generate_platte()
+    generate_arrowtype_images()
+    pass
     
     
     

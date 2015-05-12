@@ -10,7 +10,7 @@ This module simply extend from the "dot_parser.py" in pydot.
 
 from dot_parser import *
 import dot_parser
-from DEUtils import to_unicode
+
 
 def parse_string(data):
     
@@ -29,6 +29,8 @@ def parse_string(data):
         return [g for g in tokens]
 
 def parse_file(fn):
+    
+    from DEUtils import to_unicode
     
     script = open(fn).read()
 

@@ -406,7 +406,7 @@ class MainFrame ( wx.Frame ):
 class DialogAppend ( wx.Dialog ):
 	
 	def __init__( self, parent ):
-		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"Append Item", pos = wx.DefaultPosition, size = wx.Size( 373,226 ), style = wx.DEFAULT_DIALOG_STYLE )
+		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"Append Item", pos = wx.DefaultPosition, size = wx.Size( 416,366 ), style = wx.DEFAULT_DIALOG_STYLE )
 		
 		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
@@ -445,8 +445,9 @@ class DialogAppend ( wx.Dialog ):
 		self.m_panel_node = wx.Panel( self.m_panel27, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
 		self.m_panel_node.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
 		
-		fgSizer2 = wx.FlexGridSizer( 2, 2, 0, 0 )
+		fgSizer2 = wx.FlexGridSizer( 3, 2, 0, 0 )
 		fgSizer2.AddGrowableCol( 1 )
+		fgSizer2.AddGrowableRow( 2 )
 		fgSizer2.SetFlexibleDirection( wx.BOTH )
 		fgSizer2.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
@@ -455,7 +456,7 @@ class DialogAppend ( wx.Dialog ):
 		fgSizer2.Add( self.m_staticText1, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_RIGHT, 5 )
 		
 		m_comboBox_nodeAChoices = []
-		self.m_comboBox_nodeA = wx.ComboBox( self.m_panel_node, wx.ID_ANY, u"NewNode", wx.DefaultPosition, wx.DefaultSize, m_comboBox_nodeAChoices, 0 )
+		self.m_comboBox_nodeA = wx.ComboBox( self.m_panel_node, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, m_comboBox_nodeAChoices, 0 )
 		fgSizer2.Add( self.m_comboBox_nodeA, 0, wx.ALIGN_CENTER|wx.ALL|wx.EXPAND, 5 )
 		
 		self.m_staticText2 = wx.StaticText( self.m_panel_node, wx.ID_ANY, u"Node B:", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -467,6 +468,16 @@ class DialogAppend ( wx.Dialog ):
 		self.m_comboBox_nodeB.Enable( False )
 		
 		fgSizer2.Add( self.m_comboBox_nodeB, 0, wx.ALIGN_CENTER|wx.ALL|wx.EXPAND, 5 )
+		
+		self.m_staticText16 = wx.StaticText( self.m_panel_node, wx.ID_ANY, u"Lable:", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_RIGHT )
+		self.m_staticText16.Wrap( -1 )
+		fgSizer2.Add( self.m_staticText16, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_RIGHT|wx.ALL, 5 )
+		
+		self.m_textCtrl_label = wx.TextCtrl( self.m_panel_node, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.HSCROLL|wx.TE_MULTILINE|wx.TE_WORDWRAP )
+		self.m_textCtrl_label.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_INFOBK ) )
+		self.m_textCtrl_label.SetToolTipString( u"Label of node/edge/subgraph.\nJust leave empty if no label to set." )
+		
+		fgSizer2.Add( self.m_textCtrl_label, 0, wx.ALL|wx.EXPAND, 5 )
 		
 		
 		self.m_panel_node.SetSizer( fgSizer2 )

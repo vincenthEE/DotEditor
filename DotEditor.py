@@ -27,12 +27,12 @@ import AttrsDef
 import ExtPG
 from __builtin__ import isinstance
 from DEUtils import add_double_quote, to_unicode, remove_double_quote ,\
-                    normalize_imglist, get_image_resource, resource_path
-
+                    normalize_imglist, get_image_resource, resource_path,\
+                    escape_dot_string
 
 ### The layout command and export format wildcard define. 
 ### The "osage", "sfdp" commands are not here because the pydot module has missed them.
-G_CMDS = ['circo', 'dot', 'fdp', 'neato', 'twopi']
+G_CMDS = ['circo', 'dot', 'fdp', 'sfdp', 'neato', 'twopi']
 G_FORMAT_WILDCARD = "Portable Network Graphics format (*.png)|*.png"+\
                     "|Windows Bitmap Format (*.bmp)|*.bmp"+\
                     "|JPEG format (*.jpg)|*.jpg"+\
@@ -99,133 +99,69 @@ class DA(DialogAppend):
         
         self.m_comboBox_nodeA.SetFocus()
     
-    def __name_add_label(self, name, label):
-        '''Add name and label to a new string.'''
-        r = name
-        if (not label is None) and (label.strip() != ''):
-            # Add strange surround symbol, make it easy to find in suggestion_B or get value.
-            r = name+' [%%label=%s%%]'%label
-        return r
-    
-    def __name_remove_label(self, name):
-        '''Delete label from name if possiable, ref to <self.__name_add_label>.'''
-        _pos = name.rfind('[%')
-        if _pos >= 0:
-            return name[:_pos].strip()
-        else:
-            return name
-    
     def __refresh_comboBoxA_suggestion(self):
         '''Refresh comboxA, filled it with suggested node name.'''
-        edges = self.data_graph.get_edges()
-        nodes = self.data_graph.get_nodes()
+        nodes = self.data_graph.EG_get_all_node_names()
+        edges = self.data_graph.EG_get_all_edge_names()
         
-        # Save the value in old_v.
-        old_v = self.m_comboBox_nodeA.GetValue()
+        endpoints = set()
+        for s, d in edges:
+            endpoints.add(s); endpoints.add(d)
         
         ### Generate suggestion when Appending Node.
         if self.m_radioBox_type.GetSelection() == 0:
-            # Get all node's name.
-            all_n = set() 
-            for n in nodes:
-                all_n.add( remove_double_quote(n.get_name()) )
-                
-            # Get all end-node of edges that not in all_n.
-            s_n = set()
-            for e in edges:
-                nS = remove_double_quote( e.get_source() )
-                nD = remove_double_quote( e.get_destination() )
-                for n in [nS, nD]:
-                    if not (n in all_n):
-                        s_n.add(n)
-                        
-            s_n = list(s_n); s_n.sort()
+            # All end node but the stand-alone one.
+            s_n = list(endpoints - set(nodes))
         
         ### Generate suggestion when Appending Edge.
         else:
             # Get all node name in graph. Include all end-nodes in edges. 
-            all_n = set()
-            need_remove_nodes = set()
-            for n in nodes:
-                _n = remove_double_quote( n.get_name() )
-                _l = remove_double_quote( n.get_label() )
-                _n_text = self.__name_add_label(_n, _l)
-                    
-                if _n not in ['node', 'edge']: # Exclude wildcard node.
-                    all_n.add(_n_text)
-                    ### Remove the node without label appended.
-                    if _n != _n_text: 
-                        need_remove_nodes.add(_n)
-            
-            for e in edges:
-                nS = remove_double_quote( e.get_source() )
-                nD = remove_double_quote( e.get_destination() )
-                all_n.add(nS); all_n.add(nD)
-            s_n = all_n - need_remove_nodes
-            s_n = list(s_n); s_n.sort()
-        
+            s_n = list( set(nodes).union(endpoints) )
+      
+        # Save the value in old_v.
+        old_v = self.m_comboBox_nodeA.GetValue()
         self.m_comboBox_nodeA.Clear()
+        s_n.sort()
         for n in s_n:
             self.m_comboBox_nodeA.Append(n.decode('utf8'))
         
         # Restore the nodeA value.
-        if old_v.encode('utf8') in s_n:
-            self.m_comboBox_nodeA.SetValue(old_v)
+        self.m_comboBox_nodeA.SetValue(old_v)
         
         return
     
     def __refresh_comboBoxB_suggestion(self):
         '''Refresh comboxB, filled it with suggested node name, based on the value of comboxA.'''
-        if self.m_radioBox_type.GetSelection() == 0:
+        if self.m_radioBox_type.GetSelection() != 1:
             self.m_comboBox_nodeB.Clear()
             return
             
-        # Save the value in old_v.
-        old_v = self.m_comboBox_nodeB.GetValue()
-            
-        edges = self.data_graph.get_edges()
-        nodes = self.data_graph.get_nodes()
-        rawA = self.m_comboBox_nodeA.GetValue().strip().encode('utf8')
-        # Remove label part from nA if existed.
-        nA = self.__name_remove_label(rawA)
+        nodes = self.data_graph.EG_get_all_node_names()
+        edges = self.data_graph.EG_get_all_edge_names()
+        endpoints = set()
+        for s, d in edges:
+            endpoints.add(s); endpoints.add(d)
+        
+        nA = self.m_comboBox_nodeA.GetValue().strip().encode('utf8')
         
         # Get all node's name.
-        s_n = set() 
-        need_remove_nodes = set()
-        for n in nodes:
-            
-            _n = remove_double_quote( n.get_name() )
-            _l = remove_double_quote( n.get_label() )
-            _n_text = self.__name_add_label(_n, _l)
-                
-            if _n not in ['node', 'edge']: # Exclude wildcard node.
-                s_n.add(_n_text)
-                ### Remove the node without label appended.
-                if _n != _n_text: 
-                    need_remove_nodes.add(_n)
-            
-        # Get all end-nodes of edges if start ending not nA.
-        for e in edges:
-            nS = remove_double_quote( e.get_source() )
-            nD = remove_double_quote( e.get_destination() )
-            if nA != nS:
-                s_n.add(nS); s_n.add(nD)
-            else:
-                nD = self.__name_remove_label(nD)
-                need_remove_nodes.add(nD)
-                if nA == nD: ### Find a self connected node.x
-                    need_remove_nodes.add(rawA)
-                    
-        s_n = s_n - need_remove_nodes
+        s_n = set(nodes).union(endpoints)  
+        invalid_points = set()
+        for s,d in edges:
+            if s == nA:
+                invalid_points.add(d)
+                     
+        s_n = s_n - invalid_points 
         s_n = list(s_n); s_n.sort()
         
+        # Save the value in old_v.
+        old_v = self.m_comboBox_nodeB.GetValue()
         self.m_comboBox_nodeB.Clear()
         for n in s_n:
             self.m_comboBox_nodeB.Append(n.decode('utf8'))
         
         # Restore the nodeA value.
-        if old_v.encode('utf8') in s_n:
-            self.m_comboBox_nodeB.SetValue(old_v)
+        self.m_comboBox_nodeB.SetValue(old_v)
         
         return
     
@@ -234,13 +170,13 @@ class DA(DialogAppend):
         vCheck = self.m_radioBox_type.GetSelection()
         vA = remove_double_quote( self.m_comboBox_nodeA.GetValue().encode('utf8') )
         vB = remove_double_quote( self.m_comboBox_nodeB.GetValue().encode('utf8') )
-            
+        
         if vCheck == 0:
-            return 'node', self.__name_remove_label(vA)
+            return 'node', escape_dot_string(vA)
         elif vCheck == 1:
-            return 'edge', (self.__name_remove_label(vA), self.__name_remove_label(vB))
+            return 'edge', (escape_dot_string(vA), escape_dot_string(vB))
         else:
-            return 'subgraph', vA
+            return 'subgraph', escape_dot_string(vA)
     
     def onTypeChange(self, event):
         '''Refresh both combox when the value of append_type_checkbox changed.'''
@@ -496,6 +432,7 @@ class MF(MainFrame):
             
             self.m_tree.ExpandAll()
             self.m_tree.SelectItem(root)
+            self.onItemSelected(None)
         
             # Refresh image panel.
             self.data_graph.refresh_bitmap()
@@ -706,7 +643,7 @@ class MF(MainFrame):
         a_id = None
         if r == wx.ID_OK:
             
-            v = dlg.getAppendValue()
+            v = dlg.getAppendValue()            
             if v[0] == 'node': ### Add node.
                 try:
                     a_data = self.data_graph.EG_append_node(v[1], root_graph=root_graph)
@@ -750,6 +687,11 @@ class MF(MainFrame):
                     self.m_tree.SetItemPyData(n_id, ('node', n_data) )
                     self.m_tree.SetItemImage(n_id, self.img_dict[(n, 'gray')])
                 self.m_tree.Expand(a_id)
+            
+            ### Set label.
+            label = escape_dot_string(dlg.m_textCtrl_label.GetValue())
+            if label != '':
+                a_data.set('label', add_double_quote(label))
             
             ### Select the item in tree.
             if not a_id is None:
@@ -930,8 +872,8 @@ class MF(MainFrame):
             v = str(v)
 
         ### Update attr.
-        uv = to_unicode(v); udv = to_unicode(p.GetDefaultValue())
-        if uv == '' or uv == udv:
+        uv = to_unicode(v); udv = to_unicode(str(p.GetDefaultValue()))
+        if uv == '' or uv.lower() == udv.lower():
             try:
                 del item.get_attributes()[key]
             except:

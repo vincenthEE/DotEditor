@@ -9,9 +9,9 @@ This module include some util functions.
 '''
 
 import csv
-import ExtParser
+from ExtParser import parse_string
 import wx
-import os, sys
+import os, sys, re
 import ply.lex as lex
 
 def resource_path(relative_path):
@@ -23,6 +23,45 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
 
     return os.path.join(base_path, relative_path)
+
+def escape_dot_string(s):
+    
+    s = s.strip()
+    if len(s) == 0: return s
+    
+    # Kill '\n' at the end of s.
+    while 1:
+        if len(s) > 0 and s[-1] == '\n':
+            s = s[:-1]
+        else:
+            break
+    
+    R_PAIR = [('\\l',  '*!&@SL'),
+              ('\\n',  '*!&@SN'),
+              ('\\r',  '*!&@SR'),
+              ('\\"',  '*!&@SQ'),
+              ('\\\\', '*!&@SS'),
+              ]
+
+    SQ = '*!&@SQ'
+    SS = '*!&@SS'
+
+    # Protect all r.
+    for rp in R_PAIR:
+        s = s.replace(rp[0], rp[1])
+    
+    r_sq = re.compile(r'(?<!\\)"')
+    r_ss = re.compile(r'(?<!\\)\\')
+    
+    # Replace '"' and '\'
+    s = r_sq.sub(SQ, s)
+    s = r_ss.sub(SS, s)
+    
+    # Turn back rp
+    for rp in R_PAIR:
+        s = s.replace(rp[1], rp[0])
+        
+    return s
 
 def remove_double_quote(s):
     '''Remove double quote if nessary.'''
@@ -47,7 +86,12 @@ def add_double_quote(s):
     if s == '':
         return '""'
     
-    if s[0] != '"' and s[-1] != '"':
+    ### OK, some ugly thing on some graphviz version. The '\' at the end never 
+    ### allowed. So add a space in this case.
+    if len(s) > 0 and s[-1] == '\\':
+        s += ' '
+    
+    if not (s[0] == '"' and s[-1] == '"'):
         s = '"'+s+'"'
         
     return s
@@ -134,16 +178,16 @@ def gen_arrow_image(arrowtype, out_filepath):
     script = '''
 digraph G {
     rankdir=LR;
+    margin="0.01";
     edge [colorscheme="blues3", color=3];
-//    node [style="invis"];
-    node [fontname="sans-serif", colorscheme="x11", fontsize=12, color="lightgray", fontcolor="lightgray", style=" ", penwidth=0.5];
-    "n1" [label="A"];
-    "n2" [label="B"];
+    node [fontname="sans-serif", colorscheme="x11", fontsize=12, color="lightgray", fontcolor="lightgray", height=0.6, width=0, shape="box", style="invis", penwidth=1];
+    "n1" [label=""];
+    "n2" [label=""];
     "n1" -> "n2"  [arrowhead="dot"];
 }
     '''
 
-    g = ExtParser.parse_string(script)    
+    g = parse_string(script)    
     e1 = g.get_edge('"n1"', '"n2"')[0]
     e1.get_attributes()['arrowhead'] = add_double_quote('%s'%arrowtype)
     g.write(out_filepath, 'dot', 'png')

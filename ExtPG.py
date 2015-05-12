@@ -10,6 +10,7 @@ This module define all propgrid class and functions used in main_frame.
 Some editor dialog use the singleton method to promote efficiency.
 '''
 
+import os
 import wx.propgrid as wxpg
 import AttrsDef
 import wx, types, colour
@@ -25,11 +26,6 @@ import tempfile
 CS_DIALOG = None
 NS_DIALOG = None
 AT_DIALOG = None
-
-BUG_NO_DOUBLEQUOTE_MESSAGE = "I'm very Sorry, because the limit of 'Pydot' module, current "+\
-                             "all text in DotEditor not support including double-quote< \" >, "+\
-                             "you can delete them or replace them with single-quote< \' >. "+\
-                             "Sorry again :("
 
 def get_root_window(window):
     
@@ -67,8 +63,13 @@ class CSDialog(ColorSchemeDialog):
         
         # Change dialog size to fit the image size.        
         w, h = il.GetBitmap(0).GetSize()
-        self.SetSizeWH(int(w*4.5), h*4)
-        
+        if os.sys.platform == 'win32':
+            self.SetSizeWH(int(w*4.5), h*4)
+        elif os.sys.platform == 'darwin':
+            self.SetSizeWH(int(w*4.5), h*5)
+        else:
+            self.SetSizeWH(int(w*5), h*5)
+            
         self.updateList()
         
         self.m_list.Bind(wx.EVT_LEFT_DCLICK, self.onOK)
@@ -214,7 +215,12 @@ class NodeShapeDialog(ImageSingleChoiceDialog):
 
         # Change dialog size to fit the image size.        
         w, h = il.GetBitmap(0).GetSize()
-        self.SetSizeWH(int(w*8), h*6)
+        if os.sys.platform == 'win32':
+            self.SetSizeWH(int(w*6), h*6)
+        elif os.sys.platform == 'darwin':
+            self.SetSizeWH(int(w*6), h*5)
+        else:
+            self.SetSizeWH(int(w*6), h*6)
         
         for x in range(len(self.choices)):
             c = self.choices[x]
@@ -268,7 +274,13 @@ class ATDialog(ArrowTypeDialog):
 
         # Change dialog size to fit the image size.        
         w, h = il.GetBitmap(0).GetSize()
-        self.SetSizeWH(int(w*3.2), h*8)
+        if os.sys.platform == 'win32':
+            self.SetSizeWH(int(w*9), h*6.5)
+        elif os.sys.platform == 'darwin':
+            self.SetSizeWH(int(w*7), h*6.5)
+        else:
+            self.SetSizeWH(int(w*9), h*6.5)
+        
         
         for x in range(len(self.base_at_list )):
             c = self.base_at_list[x]
@@ -368,9 +380,9 @@ class ATDialog(ArrowTypeDialog):
         
         # Cut the center part for preview. 
         w,h=img.GetSize()
-        img = img.GetSubImage(wx.Rect((w-h)/2, 0, h, h))
+        #img = img.GetSubImage(wx.Rect((w-h)/2, 0, h, h))
         
-        self.m_bitmap_preview.SetSize((h,h))
+        self.m_bitmap_preview.SetSize((w,h))
         self.m_bitmap_preview.SetBitmap(img.ConvertToBitmap())
         self.m_bitmap_preview.UpdateWindowUI()
         
@@ -382,7 +394,6 @@ class ATDialog(ArrowTypeDialog):
             return
         
         self.EndModal(wx.ID_OK)
-
 
 
 class DotStringProperty(wxpg.PyProperty):
@@ -404,20 +415,11 @@ class DotStringProperty(wxpg.PyProperty):
 
     def StringToValue(self, s, flags):
         return True, s
-    
+
     def ValidateValue(self, value, validationInfo):
         """ Let's limit the value NOT inclue double-quote.
         """
-        # Mark the cell if validaton failred
-        validationInfo.SetFailureBehavior(wxpg.PG_VFB_MARK_CELL)
-
-        if value.find('"') >= 0:
-            wx.MessageBox(BUG_NO_DOUBLEQUOTE_MESSAGE,
-                          "Sorry, can't do this", 
-                          style=wx.OK|wx.ICON_INFORMATION)
-            return False
-
-        return (True, value)
+        return True, DEUtils.escape_dot_string(value)
 
 class DotBigStringProperty(DotStringProperty):
     '''
@@ -817,8 +819,8 @@ def buildPG(attr_name, g_type):
     if info['type'] in ['enum', 'enum_edit', 'enum_combine']:
         pg_item.SetChoices(info['param'])
     
-    elif info['type'] == 'bool':
-        pg_item.SetEditor('CheckBox')
+    #elif info['type'] == 'bool':
+    #    pg_item.SetEditor('CheckBox')
     
     elif info['type'] == 'img_file':
         pg_item.SetAttribute(wxpg.PG_FILE_WILDCARD, 
@@ -830,8 +832,15 @@ def buildPG(attr_name, g_type):
     if v is None:
         pg_item.SetDefaultValue('')
     else:
-        pg_item.SetDefaultValue(str(v).strip())
-        pg_item.SetValueFromString(str(v))
+        if info['type'] == 'bool':
+            bv = False
+            if v in [True, 'true', '1', 1]:
+                bv = True
+            pg_item.SetDefaultValue(bv)
+            pg_item.SetValue(bv)
+        else:
+            pg_item.SetDefaultValue(str(v).strip())
+            pg_item.SetValueFromString(str(v))
 
     pg_item.SetHelpString(info['description'])
     

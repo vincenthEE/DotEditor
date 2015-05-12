@@ -123,6 +123,42 @@ class ExtGraph(pydot.Dot):
 
         return
     
+    def EG_get_all_node_names(self, root_graph=None):
+        '''Get all node names in the graph, include nodes in all subgraph.'''
+        if root_graph is None:
+            root_graph = self
+        
+        nodes = root_graph.get_nodes()
+        result = [ remove_double_quote(n.get_name()) for n in nodes ]
+        
+        sgs = root_graph.get_subgraphs()
+        for sg in sgs:
+            result += self.EG_get_all_node_names(sg)
+        
+        ### Remove wildcard node.
+        try:
+            result.remove('node'); result.remove('edge')
+        except:
+            pass
+        
+        return list(set(result))
+    
+    def EG_get_all_edge_names(self, root_graph=None):
+        '''Get all edge names in the graph, include edges in all subgraph.'''
+        if root_graph is None:
+            root_graph = self
+        
+        edges = root_graph.get_edges()
+        result = [ ( remove_double_quote( e.get_source() ), \
+                     remove_double_quote( e.get_destination() ) ) \
+                  for e in edges ]
+        
+        sgs = root_graph.get_subgraphs()
+        for sg in sgs:
+            result += self.EG_get_all_edge_names(sg)
+        
+        return list(set(result))    
+    
     def EG_append_node(self, nodename, root_graph=None):
         "Add node to 'root_graph' only by name."
         uname = to_unicode(nodename.strip())

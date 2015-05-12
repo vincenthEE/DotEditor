@@ -27,7 +27,7 @@ def get_lexer():
 
     t_QUOTED_STRING =  r'(\"(\\"|[^"])*?\")'
     t_COMMENT = r'(/\*(.|\n)*?\*/)|(//.*)'
-    t_KEYWORD = r'(?i)strict|digraph|graph|node|edge|subgraph'
+    t_KEYWORD = r'(?i)(strict|digraph|graph|node|edge|subgraph)(?=[,;\n\.\ \{\[])'
     t_PAREN = r'\[|\]|\{|\}'
     t_EDGE_LINK = r'--|-\>'
     
@@ -125,7 +125,7 @@ class DS(DialogScript):
         
         ttable = parse_dot(script)
         
-        ### Insert 'PLAIN' token into ttable ;)
+        ### Fill 'PLAIN' token to blank in ttable ;)
         ttable.sort()
         new_table = []
         for x in range(len(ttable)):
@@ -141,6 +141,8 @@ class DS(DialogScript):
                 self.m_text_script.SetStyle(t[0], t[1], self.font_dict[t[2]])
                 if t[1] < l_end:
                     self.m_text_script.SetStyle(t[1], l_end, self.font_dict['PLAIN'])
+            elif t[0] < l_begin and l_end < t[1]:
+                self.m_text_script.SetStyle(l_begin, l_end, self.font_dict[t[2]])
         return
     
     def light_script_all(self):
