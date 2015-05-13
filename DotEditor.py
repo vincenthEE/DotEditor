@@ -907,9 +907,10 @@ class MF(MainFrame):
                                    )
             if md.ShowModal() != wx.ID_YES:
                 return
-        
-        self.update_graph( ExtGraph.ExtGraph('G') )
+
+        self.file_path = None        
         self.is_data_changed = False
+        self.update_graph( ExtGraph.ExtGraph('G') )
             
         return
     
@@ -979,7 +980,11 @@ class MF(MainFrame):
             new_fp = os.path.join(pn, time.strftime('backup_%y%m%d%H%M%S') + '_' + fn)
             shutil.copy(fp, new_fp)
         ### Save graph now.
-        self.data_graph.write(fp)
+        
+        f = open(fp, 'wb')
+        f.write(self.data_graph.EG_to_string())
+        #self.data_graph.write(fp)
+        
         self.file_path = fp
         self.is_data_changed = False
         self.update_graph()
