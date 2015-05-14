@@ -18,7 +18,7 @@ import wx.propgrid as pg
 class MainFrame ( wx.Frame ):
 	
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"DotEditor", pos = wx.DefaultPosition, size = wx.Size( 942,688 ), style = wx.DEFAULT_FRAME_STYLE|wx.NO_BORDER )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"DotEditor", pos = wx.DefaultPosition, size = wx.Size( 942,688 ), style = wx.DEFAULT_FRAME_STYLE )
 		
 		self.SetSizeHintsSz( wx.Size( 800,600 ), wx.DefaultSize )
 		self.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 90, False, wx.EmptyString ) )

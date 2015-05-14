@@ -691,7 +691,7 @@ class MF(MainFrame):
             ### Set label.
             label = escape_dot_string(dlg.m_textCtrl_label.GetValue())
             if label != '':
-                a_data.set('label', add_double_quote(label))
+                a_data.set('label', add_double_quote(label.encode('utf8')))
             
             ### Select the item in tree.
             if not a_id is None:
